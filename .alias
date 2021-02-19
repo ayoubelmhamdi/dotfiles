@@ -78,7 +78,7 @@
  alias newtag='git tag -a'
  
  # bare git repo alias for dotfiles
- alias aliasmyconfig="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+ alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
  
  #++++++++++++++++++++++++++++++++++++++++
  #		cd			+
