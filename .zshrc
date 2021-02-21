@@ -20,6 +20,8 @@ delcheck() {
 
 #delcheck "$@"
 export PATH=$PATH:$HOME/bin
+PATH=$PATH:~/.local/bin
+export PATH
 #tmux
 clear
 neofetch
