@@ -89,7 +89,7 @@
  alias .3='cd ../../..'
  alias .4='cd ../../../..'
  alias .5='cd ../../../../..'
- alias p5='cd /storage/emulated/0/Download/yyy/first'
+ alias p5='cd /storage/emulated/0/Download/yyy/p5.js'
  
  #++++++++++++++++++++++++++++++++++++++++
  #	pacman mirror			+
