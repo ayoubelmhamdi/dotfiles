@@ -3,6 +3,7 @@ ZSH_THEME="zhann"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.alias
+source $HOME/.config/bash/fzf.sh
 
 export TERM=xterm-256color
 VISUAL="nvim"
