@@ -7,6 +7,8 @@
 # bare git repo alias for dotfiles
 # alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias csta="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME status"
+alias clog="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME log"
+alias ccheckout="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME checkout"
 alias cadd="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME add"
 alias caddu="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME add -u"
 alias ccommit="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME commit -m"
