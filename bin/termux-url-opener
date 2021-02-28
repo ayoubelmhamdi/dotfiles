@@ -29,6 +29,7 @@
 
 url=$1
 echo "What should I do with $url ?"
+echo "c) cut youtube url by server"
 echo "y) download youtube video to movies-folder"
 echo "u) download youtube video and convert it to mp3 (music-folder)"
 echo "s) download with scdl (soundcloud)"
@@ -37,6 +38,13 @@ echo "x) nothing"
 
 read CHOICE
 case $CHOICE in
+    c)
+	echo "start video time mm:ss"
+	read  startVideo
+	echo "end video time mm:ss"
+	read endVideo
+    exit 0
+	;;
     y)
         youtube-dl -o "/storage/emulated/0/Movies/%(title)s.%(ext)s" $url
 	;;
