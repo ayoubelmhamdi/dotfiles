@@ -6,13 +6,13 @@
 _isTermux=false
 _isUbuntu=false
 _isDebian=false
-_isVoid  =false
-_isArch  =false
+_isVoid=false
+_isArch=false
 [[ "$OS" =~ Linux  ]] && _isTermux=true
 [[ "$OS" =~ Ubuntu ]] && _isUbuntu=true
 [[ "$OS" =~ Debian ]] && _isDebian=true
-[[ "$OS" =~ Void   ]] && _isVoid  =true
-[[ "$OS" =~ Arch   ]] && _isArch  =true
+[[ "$OS" =~ Void   ]] && _isVoid=true
+[[ "$OS" =~ Arch   ]] && _isArch=true
 
 # Diff Distribution {{{
   # we're on TERMUX
