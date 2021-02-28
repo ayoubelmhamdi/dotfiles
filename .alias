@@ -1,8 +1,66 @@
  #!/bin/bash
-#termux 2 
 #----------------------------------------
 #		alias file		+
 #----------------------------------------
+
+_isTermux=false
+_isUbuntu=false
+_isDebian=false
+_isVoid  =false
+_isArch  =false
+[[ "$OS" =~ Linux  ]] && _isTermux=true
+[[ "$OS" =~ Ubuntu ]] && _isUbuntu=true
+[[ "$OS" =~ Debian ]] && _isDebian=true
+[[ "$OS" =~ Void   ]] && _isVoid  =true
+[[ "$OS" =~ Arch   ]] && _isArch  =true
+
+# Diff Distribution {{{
+  # we're on TERMUX
+  if $_isTermux; then
+    alias i='apt install' # install pkg
+
+  fi
+
+  # we're on UBUNTU
+  if $_isUbuntu; then
+    alias i='sudo apt install' # install pkg
+  fi
+
+  # we're on DEBIAN
+  if $_isDebian; then
+    alias i='sudo apt install' # install pkg
+  fi
+
+  # we're on VOID
+  if $_isVoid; then
+    alias i='      sudo xbps-install -S' # install pkg
+    alias iu='     sudo xbps-install -Syuv' #upgrage
+    alias svinit=' init_runit_sv' #i don't now
+    alias unlock=' sudo xbps-pkgdb -a'  #fix xbps
+    alias xrm='    sudo xbps-remove -vR'   #remove pkg
+    alias xro='    sudo xbps-remove -vROo' #remove pkg & dependance
+  fi
+
+  # we're on ARCH
+  if $_isArch; then
+    alias iy="      sudo pacman -Sy --noconfirm"		#
+    alias iyy="     sudo pacman -Syy --noconfirm"	#
+    alias iyyu='    sudo pacman -Syyu'			# update only standard pkgs
+    alias yua="     yay -Sua --noconfirm --noconfirm"	# update only AUR pkgs
+    alias yyu="     yay -Syu --noconfirm"             	# update standard pkgs and AUR pkgs
+    alias unlock="  sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
+    alias cleanup=' sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+    # get fastest mirrors
+    alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+    alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+    alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+    alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+  fi
+
+#}}}
+
+
+
 
 # bare git repo alias for dotfiles
 # alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
@@ -25,18 +83,7 @@ alias rr='f(){ clear ; sudo rm -r "$1"; la; }; f'
 alias ddd="clear;du -ah --max-depth 1"
 alias p="sudo chown t:t "
 
-#++++++++++++++++++++++++++++++++++++++++
-#		pacman & yay		+
-#++++++++++++++++++++++++++++++++++++++++
 
-alias iy="sudo pacman -Sy --noconfirm"		#
-alias iyy="sudo pacman -Syy --noconfirm"	#
-alias iyyu='sudo pacman -Syyu'			# update only standard pkgs
-alias yua="yay -Sua --noconfirm --noconfirm"	# update only AUR pkgs
-alias yyu="yay -Syu --noconfirm"             	# update standard pkgs and AUR pkgs
-
-alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 
 
 #++++++++++++++++++++++++++++++++++++++++
@@ -96,15 +143,7 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 alias p5='cd /storage/emulated/0/Download/yyy/p5.js'
 
-#++++++++++++++++++++++++++++++++++++++++
-#	pacman mirror			+
-#++++++++++++++++++++++++++++++++++++++++
 
-# get fastest mirrors
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 #++++++++++++++++++++++++++++++++++++++++
 #		grep color		+
 #++++++++++++++++++++++++++++++++++++++++
@@ -188,15 +227,6 @@ ex (){
 
 
 #alias i="sudo pacman -S --noconfirm"		#
-#alias i='sudo xbps-install -S' # install pkg
-alias i='sudo apt-get install' # install pkg
-
-alias iu='sudo xbps-install -Syuv' #upgrage
-alias svinit='init_runit_sv' #i don't now
-
-alias unlock='sudo xbps-pkgdb -a'  #fix xbps
-alias xrm='sudo xbps-remove -vR'   #remove pkg
-alias xro='sudo xbps-remove -vROo' #remove pkg & dependance
 
 alias sm='scim'
 alias c='clear'

@@ -1,10 +1,16 @@
+export TERM=xterm-256color
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="macovsky-ruby"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
-source $HOME/.alias
 
-export TERM=xterm-256color
+# source {{
+    OS="Linux"
+    . $HOME/.config/myConfig/this-distribution.sh
+    . $HOME/.alias
+
+#}}
+
 VISUAL="nvim"
 
 
