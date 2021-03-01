@@ -40,9 +40,13 @@ read CHOICE
 case $CHOICE in
     c)
 	echo "start video time mm:ss"
-	read  startVideo
+	read startVideo
 	echo "end video time mm:ss"
 	read endVideo
+    echo
+    export startVideo
+    export endVideo
+    . $HOME/scripts/my/video/server.sh
     exit 0
 	;;
     y)
