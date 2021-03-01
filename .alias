@@ -72,7 +72,7 @@ alias caddu="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME add -u"
 alias ccommit="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME commit -m"
 alias cpush="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME push"
 alias cpull="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && source $HOME/.alias"
-alias cu='$HOME/scripts/my/push-config.sh'
+alias cu='push-config.sh'
 # /usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  config --local status.showUntrackedFiles no
 # /usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  checkout
 
@@ -106,7 +106,7 @@ alias shut='sudo shutdown -h now'
 #		git			+
 #++++++++++++++++++++++++++++++++++++++++
 
-alias u='$HOME/scripts/my/push.sh'
+alias u='push.sh'
 
 
 

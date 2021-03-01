@@ -40,14 +40,14 @@ read CHOICE
 case $CHOICE in
     c)
 	echo "start video time mm:ss"
-	read startVideo
+	read STARTVIDEO
 	echo "end video time mm:ss"
-	read endVideo
+	read ENDVIDEO
     echo
-    export startVideo
-    export endVideo
-    . $HOME/scripts/my/video/server.sh
-    exit 0
+    export URL=$url
+    export STARTVIDEO
+    export ENDVIDEO
+    source $HOME/scripts/my/server/splitByServer.sh
 	;;
     y)
         youtube-dl -o "/storage/emulated/0/Movies/%(title)s.%(ext)s" $url
