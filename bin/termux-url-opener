@@ -30,6 +30,7 @@
 url=$1
 echo "What should I do with $url ?"
 echo "c) cut youtube url by server"
+echo "p) cut youtube url without server"
 echo "y) download youtube video to movies-folder"
 echo "u) download youtube video and convert it to mp3 (music-folder)"
 echo "s) download with scdl (soundcloud)"
@@ -48,6 +49,17 @@ case $CHOICE in
     export STARTVIDEO
     export ENDVIDEO
     source $HOME/scripts/my/server/splitByServer.sh
+	;;
+    p)
+	echo "start video time mm:ss"
+	read STARTVIDEOP
+	echo "end video time mm:ss"
+	read ENDVIDEOP
+    echo
+    export URLP=$url
+    export STARTVIDEOP
+    export ENDVIDEOP
+    source $HOME/scripts/my/video/portionFromYoutube.sh
 	;;
     y)
         youtube-dl -o "/storage/emulated/0/Movies/%(title)s.%(ext)s" $url

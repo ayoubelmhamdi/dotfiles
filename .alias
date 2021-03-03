@@ -281,15 +281,4 @@ alias valiasrc='v ~/.alias'
 alias vvimrc='v ~/.vimrc'
 alias vrangerc='v ~/.config/ranger/rc.conf'
 
-
-
-#script
-alias 720p='~/void-fs/root/scripts/my/video/720p.sh'
-alias 480p='~/void-fs/root/scripts/my/video/480p.sh'
-alias 144p='~/void-fs/root/scripts/my/video/144p.sh'
-
-alias 720p-list='~/void-fs/root/scripts/my/video/720p-txt.sh'
-alias 480p-list='~/void-fs/root/scripts/my/video/480p-txt.sh'
-alias 144p-list='~/void-fs/root/scripts/my/video/144p-txt.sh'
-
-
+alias pssh='sshpass -p 'root' ssh -o UserKnownHostsFile=\/dev\/null -o StrictHostKeyChecking=no root@4.tcp.ngrok.io -p '
