@@ -281,4 +281,4 @@ alias valiasrc='v ~/.alias'
 alias vvimrc='v ~/.vimrc'
 alias vrangerc='v ~/.config/ranger/rc.conf'
 
-alias pssh='sshpass -p 'root' ssh -o UserKnownHostsFile=\/dev\/null -o StrictHostKeyChecking=no root@4.tcp.ngrok.io -p '
+alias pssh='sshpass -p 'root' ssh -o UserKnownHostsFile=\/dev\/null -o StrictHostKeyChecking=no '
