@@ -18,18 +18,22 @@ VISUAL="nvim"
 #      PATH        #
 ####################
 
+#my scripts and sub directory
+PATH=$PATH:$HOME/scripts/my/
 for directory in $HOME/scripts/my/*/ ; do
   PATH="$PATH:$directory"
 done
-PATH=$PATH:$HOME/scripts/my/
+
+PATH=$PATH:$HOME/arch/
 PATH=$PATH:$HOME/bin/
 PATH=$PATH:$HOME/.local/bin/
+
+#
+#remove duplique path
 PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
 export PATH
 
 
-echo       "\n"      > path.txt
-echo -e "$PATH" >> path.txt
 #delcheck "$@"
 #tmux
 # clear
