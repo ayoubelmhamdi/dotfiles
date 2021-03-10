@@ -91,6 +91,7 @@ alias p="sudo chown t:t "
 #		ls			+
 #++++++++++++++++++++++++++++++++++++++++
 alias ls='clear;ls  --color=always --group-directories-first' 
+alias ld='clear;ls  --color=always --group-directories-first' 
 alias la='clear;exa -a --color=always --group-directories-first'  
 alias ll='clear;exa -l --color=always --group-directories-first'  
 alias lt='clear;exa -aT --color=always --group-directories-first' 

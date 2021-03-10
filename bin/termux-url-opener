@@ -31,6 +31,8 @@ url=$1
 echo "What should I do with $url ?"
 echo "c) cut youtube url by server"
 echo "p) cut youtube url without server"
+echo "g) gradle compile"
+echo "cl) clone github"
 echo "y) download youtube video to movies-folder"
 echo "u) download youtube video and convert it to mp3 (music-folder)"
 echo "s) download with scdl (soundcloud)"
@@ -60,6 +62,33 @@ case $CHOICE in
     export STARTVIDEOP
     export ENDVIDEOP
     source $HOME/scripts/my/video/portionFromYoutube.sh
+	;;
+    g)
+        export JAVA_HOME=$PREFIX/jdk
+        export LD_LIBRARY_PATH=$PREFIX/jdk/lib:$PREFIX/jdk/lib/jli/
+        export GRADLE_USER_HOME=$HOME/gradlec
+
+        cd $HOME
+        yes | rm -R theapp
+
+        git clone $1 theapp
+
+        cd theapp
+
+        sed -i '/buildToolsVersion/c buildToolsVersion "30.0.0-rc1"' $HOME/theapp/app/build.gradle
+        sed -i '/com.android.tools.build:gradle/c classpath "com.android.tools.build:gradle:3.6.4"  ' $HOME/theapp/build.gradle
+        sed -i '/compileSdkVersion/c compileSdkVersion 29' $HOME/theapp/app/build.gradle
+        sed -i '/compileSdkVersion/c compileSdkVersion 29' $HOME/theapp/app/build.gradle
+
+        echo "sdk.dir=/data/data/com.termux/files/home/sdk" >> local.properties
+
+        bash $HOME/gradle-6.6.1/bin/gradle assembleDebug
+
+
+	;;
+    cl)
+       cd $HOME/
+       git clone $url
 	;;
     y)
         youtube-dl -o "/storage/emulated/0/Movies/%(title)s.%(ext)s" $url
