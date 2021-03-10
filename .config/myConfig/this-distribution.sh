@@ -1,4 +1,11 @@
+#!/data/data/com.termux/files/usr/bin/bash
 
+#   ___  ____  
+#  / _ \/ ___| 
+# | | | \___ \ 
+# | |_| |___) |
+#  \___/|____/ 
+             
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
     . /etc/os-release
@@ -28,3 +35,5 @@ else
     OS=$(uname -s)
     VER=$(uname -r)
 fi
+OS=$(echo -e $OS |sed 's/^\([^ ]*\) .*/\1/g')
+# echo $OS

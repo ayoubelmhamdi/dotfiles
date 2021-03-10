@@ -33,6 +33,10 @@ PATH=$PATH:$PREFIX/jdk/lib/jli/
 # android sdk
 PATH=$PATH:$HOME/sdk/android-sdk/tools/bin
 PATH=$PATH:$HOME/gradle-6.6.1/bin
+# nes sdk
+# PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin/
+# PATH:${ANDROID_HOME}/platform-tools/
+
 #remove duplique path
 PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
 export PATH
@@ -45,7 +49,8 @@ export GRADLE_USER_HOME=$HOME/gradlec
 
 
 # sdk
-export ANDROID_HOME=$HOME/sdk
+export ANDROID_HOME=$HOME/sdk/android-sdk/
+
 # if licenses not setup yet exec one time 
 # yes | $HOME/sdk/android-sdk/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses
 
@@ -57,3 +62,10 @@ export ANDROID_HOME=$HOME/sdk
 # clear
 # neofetch
 #$HOME/start-void.sh
+#
+#
+
+# new sdk
+export ANDROID_HOME=$HOME/sdk/android-sdk
+export PATH=$PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin/
+export PATH=$PATH:${ANDROID_HOME}/platform-tools/
