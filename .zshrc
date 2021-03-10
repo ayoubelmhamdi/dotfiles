@@ -40,6 +40,7 @@ PATH=$PATH:$HOME/gradle-6.6.1/bin
 #remove duplique path
 PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
 export PATH
+export XDG_DATA_HOME=$HOME/.local/share
 
 # JAVA_HOME
 export JAVA_HOME=$PREFIX/jdk
@@ -66,6 +67,6 @@ export ANDROID_HOME=$HOME/sdk/android-sdk/
 #
 
 # new sdk
-export ANDROID_HOME=$HOME/sdk/android-sdk
-export PATH=$PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin/
-export PATH=$PATH:${ANDROID_HOME}/platform-tools/
+# export ANDROID_HOME=$HOME/sdk/android-sdk
+# export PATH=$PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin/
+# export PATH=$PATH:${ANDROID_HOME}/platform-tools/
