@@ -97,5 +97,4 @@ export GRADLE_USER_HOME=$HOME/gradlec
 
 
 
-# rm tt.log >2/dev/null 
-
+rm $HOME/tt.log  >/dev/null 2>&1
