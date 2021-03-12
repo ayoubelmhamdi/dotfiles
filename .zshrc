@@ -1,3 +1,4 @@
+#!/bin/bash
 # _________  _   _ 
 #|__  / ___|| | | |
 #  / /\___ \| |_| |
@@ -10,20 +11,19 @@ ZSH_THEME="macovsky-ruby"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-#alias by OS
-# source {{
+##alias by OS
+## source {{
     OS="Linux"
     . $HOME/.config/myConfig/this-distribution.sh
     . $HOME/.alias
 
-#}}
+##}}
 
 
-# option
-# editor {{
+## editor {{
     VISUAL="nvim"
     EDITOR="nvim"
-#}}
+##}}
 
 #  ____   _  _____ _   _ 
 # |  _ \ / \|_   _| | | |
@@ -32,27 +32,33 @@ source $ZSH/oh-my-zsh.sh
 # |_| /_/   \_\_| |_| |_|
                        
 #my scripts and sub directory
-PATH=$PATH:$HOME/scripts/my/
 for directory in $HOME/scripts/my/*/ ; do
   PATH="$PATH:$directory"
 done
+[[ -d $HOME/scripts/my ]] && PATH=$PATH:$HOME/scripts/my
+
+
 #run arch in termux
-PATH=$PATH:$HOME/arch/
+[[ -d $HOME/arch ]] && PATH=$PATH:$HOME/arch
+
+
 # run open-url/open file in termux
-PATH=$PATH:$HOME/bin/
+[[ -d $HOME/bin ]] && PATH=$PATH:$HOME/bin
+
+
 # apps:python...
-PATH=$PATH:$HOME/.local/bin/
+[[ -d $HOME/.local/bin ]] && PATH=$PATH:$HOME/.local/bin
 #java termux
-PATH=$PATH:$PREFIX/jdk/lib
-PATH=$PATH:$PREFIX/jdk/lib/jli/
+[[ -d $PREFIX/jdk/lib ]] && PATH=$PATH:$PREFIX/jdk/lib
+[[ -d $PREFIX/jdk/lib/jli ]] && PATH=$PATH:$PREFIX/jdk/lib/jli
 # android sdk
-PATH=$PATH:$HOME/sdk/android-sdk/tools/bin
-PATH=$PATH:$HOME/gradle-6.6.1/bin
+[[ -d $HOME/sdk/android-sdk/tools/bin ]] && PATH=$PATH:$HOME/sdk/android-sdk/tools/bin
+[[ -d $HOME/gradle-6.6.1/bin ]] && PATH=$PATH:$HOME/gradle-6.6.1/bin
 # gitm7x for git in tmux
-PATH=$PATH:$HOME/.config/myConfig/gitmux/
+[[ -d $HOME/.config/myConfig/gitmux ]] && PATH=$PATH:$HOME/.config/myConfig/gitmux
 # new sdk
-# PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin/
-# PATH:${ANDROID_HOME}/platform-tools/
+# PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin
+# [[ -d  ]] && PATH:${ANDROID_HOME}/platform-tools
 
 #remove duplique path
 PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
@@ -64,17 +70,17 @@ PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; pr
 #|_____/_/\_\_|    \___/|_| \_\|_|  
                                    
 export PATH
-export XDG_DATA_HOME=$HOME/.local/share
+[[ -d $HOME/.local/share ]] && export XDG_DATA_HOME=$HOME/.local/share
 
 # JAVA_HOME
-export JAVA_HOME=$PREFIX/jdk
-export LD_LIBRARY_PATH=$PREFIX/jdk/lib:$PREFIX/jdk/lib/jli/
+[[ -d $PREFIX/jdk ]] && export JAVA_HOME=$PREFIX/jdk
+[[ -d $PREFIX/jdk/lib:$PREFIX/jdk/lib/jli ]] && export LD_LIBRARY_PATH=$PREFIX/jdk/lib:$PREFIX/jdk/lib/jli
 # GRADLE_USER_HOME
-export GRADLE_USER_HOME=$HOME/gradlec
+[[ -d $HOME/gradlec ]] && export GRADLE_USER_HOME=$HOME/gradlec
 
 
 # sdk
-# export ANDROID_HOME=$HOME/sdk/android-sdk/
+# export ANDROID_HOME=$HOME/sdk/android-sdk
 
 # if licenses not setup yet exec one time 
 # yes | $HOME/sdk/android-sdk/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses
@@ -90,11 +96,11 @@ export GRADLE_USER_HOME=$HOME/gradlec
 #
 #
 
-# new sdk
-# export ANDROID_HOME=$HOME/sdk/android-sdk
-# export PATH=$PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin/
-# export PATH=$PATH:${ANDROID_HOME}/platform-tools/
-
-
-
-rm $HOME/tt.log  >/dev/null 2>&1
+## new sdk
+## export ANDROID_HOME=$HOME/sdk/android-sdk
+## export PATH=$PATH:${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin/
+## export PATH=$PATH:${ANDROID_HOME}/platform-tools
+#
+#
+#
+[[ -f $HOME/tt.log ]] && rm -rf $HOME/tt.log  >/dev/null 2>&1
