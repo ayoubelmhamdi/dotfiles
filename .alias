@@ -33,6 +33,8 @@ _isArch=false
 
   # we're on VOID
   if $_isVoid; then
+    alias f='clear && sudo xbps-query -Rs' # find pkg
+    alias xapps='xbps-query -m | sed "s/-[0-9].*//"'  # insalled app
     alias i='      sudo xbps-install -S' # install pkg
     alias iu='     sudo xbps-install -Syuv' #upgrage
     alias svinit=' init_runit_sv' #i don't now
@@ -43,6 +45,7 @@ _isArch=false
 
   # we're on ARCH
   if $_isArch; then
+    alias f="       pkgfile "				#
     alias i="       sudo pacman -S "			#
     alias iy="      sudo pacman -Sy --noconfirm"	#
     alias iyy="     sudo pacman -Syy --noconfirm"	#
@@ -257,8 +260,6 @@ alias log='git log'
 alias remote='git remote add origin'
 alias storage='cd /storage/sdcard0/Download/sc'
 alias ytm="youtube-dl --extract-audio --audio-format mp3 "
-alias f='clear && sudo xbps-query -Rs' # find pkg
-alias xapps='xbps-query -m | sed "s/-[0-9].*//"'  # insalled app
 alias sc='scim'
 alias e='clear;exit;la'
 alias flatex='tlmgr search -- global'
