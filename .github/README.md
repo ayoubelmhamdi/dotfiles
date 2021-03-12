@@ -17,6 +17,7 @@ git remote                                      \
 ```
 
 ```
-$ /usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  config --local status.showUntrackedFiles no
-$ /usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  checkout --force
+/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  config --local status.showUntrackedFiles no
+/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  checkout --force  
+
 ```
