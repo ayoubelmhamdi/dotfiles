@@ -8,6 +8,7 @@ _isUbuntu=false
 _isDebian=false
 _isVoid=false
 _isArch=false
+
 [[ "$OS" =~ Linux  ]] && _isTermux=true
 [[ "$OS" =~ Ubuntu ]] && _isUbuntu=true
 [[ "$OS" =~ Debian ]] && _isDebian=true
@@ -18,7 +19,6 @@ _isArch=false
   # we're on TERMUX
   if $_isTermux; then
     alias i='apt install' # install pkg
-
   fi
 
   # we're on UBUNTU
@@ -43,7 +43,8 @@ _isArch=false
 
   # we're on ARCH
   if $_isArch; then
-    alias iy="      sudo pacman -Sy --noconfirm"		#
+    alias i="       sudo pacman -S "			#
+    alias iy="      sudo pacman -Sy --noconfirm"	#
     alias iyy="     sudo pacman -Syy --noconfirm"	#
     alias iyyu='    sudo pacman -Syyu'			# update only standard pkgs
     alias yua="     yay -Sua --noconfirm --noconfirm"	# update only AUR pkgs
@@ -228,7 +229,6 @@ ex (){
 
 
 
-#alias i="sudo pacman -S --noconfirm"		#
 
 alias sm='scim'
 alias c='clear'
