@@ -103,7 +103,6 @@ alias l.='clear;exa -a | egrep "^\."'
 #++++++++++++++++++++++++++++++++++++++++
 #		other			+
 #++++++++++++++++++++++++++++++++++++++++
-alias tar='tar -zxvf'
 alias sha='shasum -a 256'
 alias shut='sudo shutdown -h now'
 
@@ -113,9 +112,6 @@ alias shut='sudo shutdown -h now'
 #++++++++++++++++++++++++++++++++++++++++
 
 alias u='push.sh'
-
-
-
 
 
 #	style 2
