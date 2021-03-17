@@ -1,32 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/zsh
-#
-# This is a termux-url-opener script to do diffrent tasks on my Android phone 
-#
-#
-#
-# How to use this script
-#############################
-# Create the bin directory
-# ➜ ~ mkdir bin
-# ➜ ~ cd bin
-# Create the script (copy & paste) I use neovim. Use your prefered editor
-# ➜ nvim termux-url-opener
-# 
-# Make it executable
-# ➜ chmod +x termux-url-opener
-# 
-# Install zsh wget and ffmpeg
-# ➜ pkg install zsh wget ffmpeg python
-# https://wiki.termux.com/wiki/Shells
-#
-# Install youtube_dl and scdl with pip
-# ➜ pip install youtube_dl
-# ➜ pip install scdl mutagen
-#
-# run the following command to enable the termux storage features
-# ➜ termux-setup-storage
-# https://wiki.termux.com/wiki/Termux-setup-storage
-
 url=$1
 echo "What should I do with $url ?"
 echo "c) cut youtube url by server"
@@ -42,34 +14,34 @@ echo "x) nothing"
 read CHOICE
 case $CHOICE in
     c)
-	echo "start video time mm:ss"
-	read STARTVIDEO
-	echo "end video time mm:ss"
-	read ENDVIDEO
-    echo
-    export URL=$url
-    export STARTVIDEO
-    export ENDVIDEO
-    source $HOME/scripts/my/server/splitByServer.sh
+        echo "start video time mm:ss"
+        read STARTVIDEO
+        echo "end video time mm:ss"
+        read ENDVIDEO
+        echo
+        export URL=$url
+        export STARTVIDEO
+        export ENDVIDEO
+        source $HOME/scripts/my/server/splitByServer.sh
 	;;
     p)
-	echo "start video time mm:ss"
-	read STARTVIDEOP
-	echo "end video time mm:ss"
-	read ENDVIDEOP
-    echo
-    export URLP=$url
-    export STARTVIDEOP
-    export ENDVIDEOP
-    source $HOME/scripts/my/video/portionFromYoutube.sh
+        echo "start video time mm:ss"
+        read STARTVIDEOP
+        echo "end video time mm:ss"
+        read ENDVIDEOP
+        echo
+        export URLP=$url
+        export STARTVIDEOP
+        export ENDVIDEOP
+        source $HOME/scripts/my/video/portionFromYoutube.sh
 	;;
     g)
         export JAVA_HOME=$PREFIX/jdk
-        export LD_LIBRARY_PATH=$PREFIX/jdk/lib:$PREFIX/jdk/lib/jli/
-        export GRADLE_USER_HOME=$HOME/gradlec
+        export LD_LIBRARY_PATH=$PREFIX/jdk/lib:$PREFIX/jdk/lib/jli
+        export GRADLE_USER_HOME=$HOME/android-sdk/gradlec661
 
         cd $HOME
-        yes | rm -R theapp
+        # yes | rm -R theapp
 
         git clone $1 theapp
 
@@ -80,9 +52,9 @@ case $CHOICE in
         sed -i '/compileSdkVersion/c compileSdkVersion 29' $HOME/theapp/app/build.gradle
         sed -i '/compileSdkVersion/c compileSdkVersion 29' $HOME/theapp/app/build.gradle
 
-        echo "sdk.dir=/data/data/com.termux/files/home/sdk" >> local.properties
+        echo "sdk.dir=/data/data/com.termux/files/home/android-sdk" >> local.properties
 
-        bash $HOME/gradle-6.6.1/bin/gradle assembleDebug
+        bash $HOME/android-sdk/gradle-6.6.1/bin/gradle assembleDebug
 
 
 	;;

@@ -1,2 +1,2 @@
 #!/bin/sh
-source ~/.zshrc >> tt.log 
+# source ~/.zshrc >> tt.log 
