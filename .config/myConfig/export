@@ -7,6 +7,7 @@
 
 $_isShare && export XDG_DATA_HOME=$HOME/.local/share
 $_isDownload && export DOWNLOAD=$HOME/storage/downloads
+$_isAppProject && export AppProjects=$HOME/storage/downloads/AppProjects
 
 # JAVA_HOME
 $_isJdk && export JAVA_HOME=$PREFIX/jdk

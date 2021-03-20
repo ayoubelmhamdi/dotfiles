@@ -12,6 +12,7 @@
   source $HOME/.config/myConfig/isExcite
   source $HOME/.config/myConfig/path
   source $HOME/.config/myConfig/export
+  source $HOME/.config/myConfig/dir
 #}}
 
 # My OS {{
@@ -24,10 +25,10 @@
     EDITOR="nvim"
 #}}
 # ANDROID SDK {{
-# first you must update sdk and accepte licenses
-# sdkmanager --sdk_root=${ANDROID_HOME} --version
+# first you must and accepte licenses
 # yes |
 # sdkmanager --sdk_root=${ANDROID_HOME} --licenses 
+# sdkmanager --sdk_root=${ANDROID_HOME} --version
 # echo "sdk.dir=/data/data/com.termux/files/home/android-sdk" >> local.properties
 # mkdir $HOME/android-sdk/
 # dont do this in termux
