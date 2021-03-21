@@ -16,7 +16,7 @@ $_isJli && export LD_LIBRARY_PATH=$PREFIX/jdk/lib/jli
 
 # GRADLE_USER_HOME
 $_isGradlec && export GRADLE_USER_HOME=$HOME/android-sdk/gradlec
-$_isGradle  && export GRADLE_HOME=$HOME/android-sdk/gradle-6.6.1
+$_isGradle  && export GRADLE_HOME=$HOME/android-sdk/gradle-6.8.3
 # $_isGradlec && export GRADLE_USER_HOME=$HOME/android-sdk/gradlec683
 # $_isGradle  && export GRADLE_HOME=$HOME/android-sdk/gradle-6.8.3
 

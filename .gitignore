@@ -1,0 +1,17 @@
+.bash_history
+.cache
+.github
+.gitmux.conf
+.npm
+.oh-my-zsh
+.vim
+.zcompdump-*
+.zsh_history
+.zshrc.*
+UBUNTU
+android-sdk
+go
+scripts
+storage
+taalim
+txhome
