@@ -7,23 +7,24 @@
  
 
 # source {{
-  source $HOME/.config/myConfig/zsh-config
-  source $ZSH/oh-my-zsh.sh
-  source $HOME/.config/myConfig/isExcite
-  source $HOME/.config/myConfig/path
-  source $HOME/.config/myConfig/export
-  source $HOME/.config/myConfig/dir
+. $HOME/.config/myConfig/zsh_config
+. $ZSH/oh-my-zsh.sh
+. $HOME/.config/myConfig/myOS
+. $HOME/.config/myConfig/my_alias
+
+. $HOME/.config/myConfig/isExcite
+. $HOME/.config/myConfig/all_PATH
+. $HOME/.config/myConfig/export_Linux
+. $HOME/.config/myConfig/export_Dirs
 #}}
 
-# My OS {{
-    OS="Linux"
-    . $HOME/.config/myConfig/this-distribution.sh
-    . $HOME/.alias
-#}}
+
 # editor {{
     VISUAL="nvim"
     EDITOR="nvim"
 #}}
+
+
 # ANDROID SDK {{
 # first you must and accepte licenses
 # yes |
