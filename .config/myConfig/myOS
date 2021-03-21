@@ -1,10 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
+#         ___  ____  
+#        / _ \/ ___| 
+#       | | | \___ \ 
+#       | |_| |___) |
+#        \___/|____/ 
 
-#   ___  ____  
-#  / _ \/ ___| 
-# | | | \___ \ 
-# | |_| |___) |
-#  \___/|____/ 
              
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
@@ -32,8 +32,22 @@ elif [ -f /etc/redhat-release ]; then
     OS="REDHAT"
 else
     # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
-    OS=$(uname -s)
+    OS="Linux"
     VER=$(uname -r)
 fi
 OS=$(echo -e $OS |sed 's/^\([^ ]*\) .*/\1/g')
 # echo $OS
+
+
+
+_isTermux=false
+_isUbuntu=false
+_isDebian=false
+_isVoid=false
+_isArch=false
+
+[[ "$OS" =~ Linux  ]] && _isTermux=true
+[[ "$OS" =~ Ubuntu ]] && _isUbuntu=true
+[[ "$OS" =~ Debian ]] && _isDebian=true
+[[ "$OS" =~ Void   ]] && _isVoid=true
+[[ "$OS" =~ Arch   ]] && _isArch=true

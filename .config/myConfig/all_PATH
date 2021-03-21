@@ -1,0 +1,45 @@
+#!/bin/bash
+#  ____   _  _____ _   _ 
+# |  _ \ / \|_   _| | | |
+# | |_) / _ \ | | | |_| |
+# |  __/ ___ \| | |  _  |
+# |_| /_/   \_\_| |_| |_|
+ 
+
+# mes svripts
+if $_isScripts; then
+  for directory in $HOME/scripts/my/*/ ; do
+      PATH="$PATH:$directory"
+  done
+  PATH=$PATH:$HOME/scripts/my
+fi
+
+# run arch in termux
+$_isArch   && PATH=$PATH:$HOME/arch
+
+# run open-url/open file in termux
+$_isTermux && PATH=$PATH:$HOME/bin
+
+# apps:python...
+$isLocal   && PATH=$PATH:$HOME/.local/bin
+
+# java termux
+$_isJdk    && PATH=$PATH:$PREFIX/jdk/bin
+$_isJli    && PATH=$PATH:$PREFIX/jdk/lib/jli
+
+# android sdk
+# $_isGradle && PATH=$PATH:$HOME/android-sdk/gradle-6.8.3/bin
+$_isGradle && PATH=$PATH:$HOME/android-sdk/gradle-6.6.1/bin
+$_isSDK1   && PATH=$PATH:$HOME/android-sdk/platform-tools
+$_isSDK2   && PATH=$PATH:$HOME/android-sdk/tools/bin
+
+# gitmux for git in tmux
+$_isGitmux && PATH=$PATH:$HOME/.config/myConfig/gitmux
+
+
+# remove duplique path
+# PATH export with awk
+PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
+ 
+ 
+export PATH

@@ -1,0 +1,46 @@
+#!/bin/bash
+
+#  _     _____          _ _       
+# (_)___| ____|_  _____(_) |_ ___ 
+# | / __|  _| \ \/ / __| | __/ _ \
+# | \__ \ |___ >  < (__| | ||  __/
+# |_|___/_____/_/\_\___|_|\__\___|
+                                
+
+_isArch=false
+_isTermux=false
+_isScripts=false
+_isLocal=false
+_isShare=false
+_isGitmux=false
+_isDownload=false
+_isAppProject=false
+
+_isJdk=false
+_isJli=false
+_isGradle=false
+_isGradlec=false
+_isSDK1=false
+_isSDK2=false
+_isAndroidHome=false
+
+[[ -d $HOME/scripts/my ]] && _isScripts=true
+[[ -d $HOME/.local/bin ]] && _isLocal=true 
+[[ -d $HOME/.config/myConfig/gitmux ]] && _isGitmux=true 
+[[ -d $HOME/storage/downloads ]] && _isDownload=true 
+[[ -d $HOME/storage/downloads/AppProjects ]] && _isAppProject=true 
+
+[[ -d $HOME/bin  ]] && _isTermux=true 
+[[ -d $HOME/arch ]] && _isArch=true
+
+
+[[ -d $HOME/.local/share ]] && _isShare=true 
+
+[[ -d $PREFIX/jdk/bin ]] && _isJdk=true 
+[[ -d $PREFIX/jdk/lib/jli ]] && _isJli=true 
+
+[[ -d $HOME/android-sdk ]] && _isAndroidHome=true 
+[[ -d $HOME/android-sdk/gradlec ]] && _isGradlec=true 
+[[ -d $HOME/android-sdk/tools/bin ]] && _isSDK2=true 
+[[ -d $HOME/android-sdk/platform-tools ]] && _isSDK1=true 
+[[ -d $HOME/android-sdk/gradle-6.6.1/bin ]] && _isGradle=true 
