@@ -1,3 +1,0 @@
-#!/bin/bash
-
-export AAPT2=$HOME/android-sdk/gradlec/caches/modules-2/files-2.1/com.android.tools.build/aapt2
