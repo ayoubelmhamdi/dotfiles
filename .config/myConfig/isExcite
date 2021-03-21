@@ -43,4 +43,4 @@ _isAndroidHome=false
 [[ -d $HOME/android-sdk/gradlec ]] && _isGradlec=true 
 [[ -d $HOME/android-sdk/tools/bin ]] && _isSDK2=true 
 [[ -d $HOME/android-sdk/platform-tools ]] && _isSDK1=true 
-[[ -d $HOME/android-sdk/gradle-6.6.1/bin ]] && _isGradle=true 
+[[ -d $HOME/android-sdk/gradle-6.8.3/bin ]] && _isGradle=true 

@@ -28,8 +28,7 @@ $_isJdk    && PATH=$PATH:$PREFIX/jdk/bin
 $_isJli    && PATH=$PATH:$PREFIX/jdk/lib/jli
 
 # android sdk
-# $_isGradle && PATH=$PATH:$HOME/android-sdk/gradle-6.8.3/bin
-$_isGradle && PATH=$PATH:$HOME/android-sdk/gradle-6.6.1/bin
+$_isGradle && PATH=$PATH:$HOME/android-sdk/gradle-6.8.3/bin
 $_isSDK1   && PATH=$PATH:$HOME/android-sdk/platform-tools
 $_isSDK2   && PATH=$PATH:$HOME/android-sdk/tools/bin
 
