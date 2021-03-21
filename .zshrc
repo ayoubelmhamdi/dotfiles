@@ -5,7 +5,7 @@
 #  / /_ ___) |  _  |  _ <| |___ 
 # /____|____/|_| |_|_| \_\\____|
   
-
+# 1                                
 # source {{
 . $HOME/.config/myConfig/zsh_config
 . $ZSH/oh-my-zsh.sh
