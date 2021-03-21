@@ -268,10 +268,8 @@ alias stopvnc='vncserver-stop'
 
 
 ##### dotfiles
-alias vbashrc='v ~/.bashrc'
 alias vzshrc='v ~/.zshrc'
-alias valiasrc='v ~/.alias'
-alias vvimrc='v ~/.vimrc'
+alias valiasrc='v ~/.config/myConfig/my_alias'
 alias vrangerc='v ~/.config/ranger/rc.conf'
 
 alias pssh='sshpass -p 'root' ssh -o UserKnownHostsFile=\/dev\/null -o StrictHostKeyChecking=no '
