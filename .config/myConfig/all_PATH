@@ -7,35 +7,35 @@
  
 
 # mes svripts
-if $_isScripts; then
-  for directory in $HOME/scripts/my/* ; do
+if $_isScripts____; then
+  for directory in $dir_scripts___/* ; do
     if [ -d "$directory" ]; then
       PATH="$PATH:$directory"
     fi
   done
-  PATH=$PATH:$HOME/scripts/my
+  PATH=$PATH:$dir_scripts___
 fi
 
 # run arch in termux
-$_isArch   && PATH=$PATH:$HOME/arch
+$_isArch_______ && PATH=$PATH:$dir_arch______
 
 # run open-url/open file in termux
-$_isTermux && PATH=$PATH:$HOME/bin
+$_isTermux_____ && PATH=$PATH:$dir_termux____
 
 # apps:python...
-$isLocal   && PATH=$PATH:$HOME/.local/bin
+$_isLocal______ && PATH=$PATH:$dir_local_____
 
 # java termux
-$_isJdk    && PATH=$PATH:$PREFIX/jdk/bin
-$_isJli    && PATH=$PATH:$PREFIX/jdk/lib/jli
+$_isJdk________ && PATH=$PATH:$dir_jdk_______
+$_isJli________ && PATH=$PATH:$dir_jli_______
 
 # android sdk
-$_isGradle && PATH=$PATH:$PREFIX/android-sdk/gradle-6.8.3/bin
-$_isSDK1   && PATH=$PATH:$PREFIX/android-sdk/platform-tools
-$_isSDK2   && PATH=$PATH:$PREFIX/android-sdk/tools/bin
+$_isGradle_____ && PATH=$PATH:$dir_gradle____
+$_isSDK1_______ && PATH=$PATH:$dir_sdk1______
+$_isSDK2_______ && PATH=$PATH:$dir_sdk2______
 
 # gitmux for git in tmux
-$_isGitmux && PATH=$PATH:$HOME/.config/myConfig/gitmux
+$_isGitmux_____ && PATH=$PATH:$dir_gitmux____
 
 
 # remove duplique path

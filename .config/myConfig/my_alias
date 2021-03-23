@@ -7,7 +7,7 @@
 
 # Diff Distribution {{{
   # we're on TERMUX
-  if $_isTermux; then
+  if $_isTermuxos; then
     alias i='apt install' # install pkg
   fi
 

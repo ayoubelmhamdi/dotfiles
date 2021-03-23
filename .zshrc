@@ -5,14 +5,16 @@
 #  / /_ ___) |  _  |  _ <| |___ 
 # /____|____/|_| |_|_| \_\\____|
   
-# 1 2                              
+
 # source {{
 . $HOME/.config/myConfig/isExcite
 . $HOME/.config/myConfig/zsh_config
 . $ZSH/oh-my-zsh.sh
 . $HOME/.config/myConfig/myOS
-. $HOME/.config/myConfig/my_alias
-. $HOME/.config/myConfig/my_fun
+
+
+$_isAlias______ && . $file_alias____
+$_isFunction___ && . $file_function_
 
 . $HOME/.config/myConfig/all_PATH
 . $HOME/.config/myConfig/export_Linux
