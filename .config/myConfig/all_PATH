@@ -8,8 +8,10 @@
 
 # mes svripts
 if $_isScripts; then
-  for directory in $HOME/scripts/my/*/ ; do
+  for directory in $HOME/scripts/my/* ; do
+    if [ -d "$directory" ]; then
       PATH="$PATH:$directory"
+    fi
   done
   PATH=$PATH:$HOME/scripts/my
 fi
@@ -28,9 +30,9 @@ $_isJdk    && PATH=$PATH:$PREFIX/jdk/bin
 $_isJli    && PATH=$PATH:$PREFIX/jdk/lib/jli
 
 # android sdk
-$_isGradle && PATH=$PATH:$HOME/android-sdk/gradle-6.8.3/bin
-$_isSDK1   && PATH=$PATH:$HOME/android-sdk/platform-tools
-$_isSDK2   && PATH=$PATH:$HOME/android-sdk/tools/bin
+$_isGradle && PATH=$PATH:$PREFIX/android-sdk/gradle-6.8.3/bin
+$_isSDK1   && PATH=$PATH:$PREFIX/android-sdk/platform-tools
+$_isSDK2   && PATH=$PATH:$PREFIX/android-sdk/tools/bin
 
 # gitmux for git in tmux
 $_isGitmux && PATH=$PATH:$HOME/.config/myConfig/gitmux

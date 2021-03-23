@@ -7,12 +7,13 @@
   
 # 1 2                              
 # source {{
+. $HOME/.config/myConfig/isExcite
 . $HOME/.config/myConfig/zsh_config
 . $ZSH/oh-my-zsh.sh
 . $HOME/.config/myConfig/myOS
 . $HOME/.config/myConfig/my_alias
+. $HOME/.config/myConfig/my_fun
 
-. $HOME/.config/myConfig/isExcite
 . $HOME/.config/myConfig/all_PATH
 . $HOME/.config/myConfig/export_Linux
 . $HOME/.config/myConfig/export_Dirs
@@ -30,7 +31,7 @@
 # yes |
 # sdkmanager --sdk_root=${ANDROID_HOME} --licenses 
 # sdkmanager --sdk_root=${ANDROID_HOME} --version
-# echo "sdk.dir=/data/data/com.termux/files/home/android-sdk" >> local.properties
+# echo "sdk.dir=${PREFIX}/android-sdk" >> local.properties
 # mkdir $HOME/android-sdk/
 # dont do this in termux
 # sdkmanager --sdk_root=${ANDROID_HOME} "platform-tools"

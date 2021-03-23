@@ -15,14 +15,12 @@ $_isJli && export LD_LIBRARY_PATH=$PREFIX/jdk/lib/jli
 
 
 # GRADLE_USER_HOME
-$_isGradlec && export GRADLE_USER_HOME=$HOME/android-sdk/gradlec
-$_isGradle  && export GRADLE_HOME=$HOME/android-sdk/gradle-6.8.3
-# $_isGradlec && export GRADLE_USER_HOME=$HOME/android-sdk/gradlec683
-# $_isGradle  && export GRADLE_HOME=$HOME/android-sdk/gradle-6.8.3
+$_isGradlec && export GRADLE_USER_HOME=$PREFIX/android-sdk/gradlec
+$_isGradle  && export GRADLE_HOME=$PREFIX/android-sdk/gradle-6.8.3
 
 
 # sdk android
-$_isAndroidHome && export ANDROID_HOME=$HOME/android-sdk
-$_isAndroidHome && export ANDROID_SDK_ROOT=$HOME/android-sdk
-$_isAndroidHome && export ANDROID_SDK_HOME=$HOME/android-sdk
+$_isAndroidHome && export ANDROID_HOME=$PREFIX/android-sdk
+$_isAndroidHome && export ANDROID_SDK_ROOT=$PREFIX/android-sdk
+$_isAndroidHome && export ANDROID_SDK_HOME=$PREFIX/android-sdk
 

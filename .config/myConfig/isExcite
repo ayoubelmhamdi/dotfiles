@@ -16,6 +16,8 @@ _isGitmux=false
 _isDownload=false
 _isAppProject=false
 
+
+# for android
 _isJdk=false
 _isJli=false
 _isGradle=false
@@ -23,6 +25,14 @@ _isGradlec=false
 _isSDK1=false
 _isSDK2=false
 _isAndroidHome=false
+
+
+# function for shell
+_isGOTO=false
+
+
+
+
 
 [[ -d $HOME/scripts/my ]] && _isScripts=true
 [[ -d $HOME/.local/bin ]] && _isLocal=true 
@@ -39,8 +49,11 @@ _isAndroidHome=false
 [[ -d $PREFIX/jdk/bin ]] && _isJdk=true 
 [[ -d $PREFIX/jdk/lib/jli ]] && _isJli=true 
 
-[[ -d $HOME/android-sdk ]] && _isAndroidHome=true 
-[[ -d $HOME/android-sdk/gradlec ]] && _isGradlec=true 
-[[ -d $HOME/android-sdk/tools/bin ]] && _isSDK2=true 
-[[ -d $HOME/android-sdk/platform-tools ]] && _isSDK1=true 
-[[ -d $HOME/android-sdk/gradle-6.8.3/bin ]] && _isGradle=true 
+[[ -d $PREFIX/android-sdk ]] && _isAndroidHome=true 
+[[ -d $PREFIX/android-sdk/gradlec ]] && _isGradlec=true 
+[[ -d $PREFIX/android-sdk/tools/bin ]] && _isSDK2=true 
+[[ -d $PREFIX/android-sdk/platform-tools ]] && _isSDK1=true 
+[[ -d $PREFIX/android-sdk/gradle-6.8.3/bin ]] && _isGradle=true 
+
+# function for shell
+[[ -f $HOME/scripts/my/find/cd_to_dir.sh ]] && _isGOTO=true 
