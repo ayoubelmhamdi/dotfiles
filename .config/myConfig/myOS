@@ -40,7 +40,7 @@ OS=$(echo -e $OS |sed 's/^\([^ ]*\) .*/\1/g')
 
 
 
-_isTermux=false
+_isTermuxos=false
 _isUbuntu=false
 _isDebian=false
 _isVoid=false

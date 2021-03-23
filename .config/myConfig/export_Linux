@@ -5,22 +5,22 @@
 #| |___ /  \|  __/| |_| |  _ < | |  
 #|_____/_/\_\_|    \___/|_| \_\|_|  
 
-$_isShare && export XDG_DATA_HOME=$HOME/.local/share
-$_isDownload && export DOWNLOAD=$HOME/storage/downloads
-$_isAppProject && export AppProjects=$HOME/storage/downloads/AppProjects
+$_isShare______ && export XDG_DATA_HOME=$dir_share_____
+$_isDownload___ && export DOWNLOAD=$dir_Download__
+$_isAppProject_ && export AppProjects=$dir_appproject
 
 # JAVA_HOME
-$_isJdk && export JAVA_HOME=$PREFIX/jdk
-$_isJli && export LD_LIBRARY_PATH=$PREFIX/jdk/lib/jli
+$_isJdk________ && export JAVA_HOME=$dir_jdk_______
+$_isJli________ && export LD_LIBRARY_PATH=$dir_jli_______
 
 
 # GRADLE_USER_HOME
-$_isGradlec && export GRADLE_USER_HOME=$PREFIX/android-sdk/gradlec
-$_isGradle  && export GRADLE_HOME=$PREFIX/android-sdk/gradle-6.8.3
+$_isGradlec____ && export GRADLE_USER_HOME=$dir_gradlec___
+$_isGradle_____ && export GRADLE_HOME=$dir_gradle____
 
 
 # sdk android
-$_isAndroidHome && export ANDROID_HOME=$PREFIX/android-sdk
-$_isAndroidHome && export ANDROID_SDK_ROOT=$PREFIX/android-sdk
-$_isAndroidHome && export ANDROID_SDK_HOME=$PREFIX/android-sdk
+$_isAndroidHome && export ANDROID_HOME=$dir_andro_home
+$_isAndroidHome && export ANDROID_SDK_ROOT=$dir_andro_home
+$_isAndroidHome && export ANDROID_SDK_HOME=$dir_andro_home
 
