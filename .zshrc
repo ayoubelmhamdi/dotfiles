@@ -13,12 +13,13 @@
 . $HOME/.config/myConfig/myOS
 
 
-$_isAlias______ && . $file_alias____
-$_isFunction___ && . $file_function_
-
 . $HOME/.config/myConfig/all_PATH
 . $HOME/.config/myConfig/export_Linux
 . $HOME/.config/myConfig/export_Dirs
+
+$_isAlias______ && . $file_alias____
+$_isFunction___ && . $file_function_
+
 #}}
 
 

@@ -10,7 +10,7 @@ $_isDownload___ && export DOWNLOAD=$dir_Download__
 $_isAppProject_ && export AppProjects=$dir_appproject
 
 # JAVA_HOME
-$_isJdk________ && export JAVA_HOME=$dir_jdk_______
+$_isJdk________ && export JAVA_HOME=$PREFIX/jdk
 $_isJli________ && export LD_LIBRARY_PATH=$dir_jli_______
 
 
