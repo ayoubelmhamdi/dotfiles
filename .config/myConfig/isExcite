@@ -78,8 +78,8 @@ file_goto_____="$HOME/scrIpts/my/find/cd_to_dir.sh"
 [[ -d $dir_andro_home ]] && _isAndroidHome=true 
 [[ -d $dir_gradlec___ ]] && _isGradlec____=true 
 [[ -d $dir_sdk2______ ]] && _isSDK2_______=true 
-[[ -d $_isSDK1_______ ]] && _isSDK1_______=true 
-[[ -d $_isGradle_____ ]] && _isGradle_____=true 
+[[ -d $dir_sdk1______ ]] && _isSDK1_______=true 
+[[ -d $dir_gradle____ ]] && _isGradle_____=true 
 
 
 # function for shell
