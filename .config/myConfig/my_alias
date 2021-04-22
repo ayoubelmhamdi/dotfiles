@@ -75,7 +75,7 @@ alias cu='push-config.sh'
 
 # alias mk='f(){ clear ; sudo mkdir -p "$1"; la; }; f'
 # alias rr='f(){ clear ; sudo rm -r "$1"; la; }; f'
-alias ddd="clear;du -ah --max-depth 1"
+alias ddd='clear;du -ah --max-depth 1|sort --sort=human-numeric --human-numeric-sort -r'
 alias p="sudo chown -R $USER:$USER"
 
 

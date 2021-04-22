@@ -17,8 +17,8 @@
 . $HOME/.config/myConfig/export_Linux
 . $HOME/.config/myConfig/export_Dirs
 
-$_isAlias______ && . $file_alias____
-$_isFunction___ && . $file_function_
+. $HOME/.config/myConfig/my_alias
+. $HOME/.config/myConfig/my_function
 
 #}}
 
