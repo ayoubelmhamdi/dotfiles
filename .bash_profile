@@ -28,5 +28,5 @@ clear
 #     sleep 0.2 &
 # done
 clear && echo -e "\n\n\n\t\t\tTermux" 
-zsh 
-exit
+exec zsh 
+#exit
