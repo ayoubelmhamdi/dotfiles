@@ -7,7 +7,7 @@
 
 # Diff Distribution {{{
   # we're on TERMUX
-  if $_isTermuxos; then
+  if $_isTermux; then
     alias i='apt install' # install pkg
   fi
 
@@ -117,6 +117,7 @@ alias push='git push origin'
 alias push-first='git push --set-upstream origin'
 alias status='git status'
 alias master='git branch -M master'
+alias master='git branch -M termux'
 
 
 
