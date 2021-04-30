@@ -4,43 +4,43 @@
 # | |_) / _ \ | | | |_| |
 # |  __/ ___ \| | |  _  |
 # |_| /_/   \_\_| |_| |_|
- 
+
+
 
 # mes svripts
-if $_isScripts____; then
-  for directory in $dir_scripts___/* ; do
+if [ -e $HOME/scripts ]; then
+  for directory in "$HOME/scripts/my/*" ; do
     if [ -d "$directory" ]; then
       PATH="$PATH:$directory"
     fi
   done
-  PATH=$PATH:$dir_scripts___
+  PATH=$PATH:"$HOME/scripts/my"
 fi
 
 # run arch in termux
-$_isArch_______ && PATH=$PATH:$dir_arch______
-
+PATH=$PATH:"$HOME/arch"
 # run open-url/open file in termux
-$_isTermux_____ && PATH=$PATH:$dir_termux____
+PATH=$PATH:"$HOME/bin"
 
 # apps:python...
-$_isLocal______ && PATH=$PATH:$dir_local_____
+PATH=$PATH:"$HOME/.local/bin"
 
 # java termux
-$_isJdk________ && PATH=$PATH:$dir_jdk_______
-$_isJli________ && PATH=$PATH:$dir_jli_______
+#PATH=$PATH:"$PREFIX/jdk/bin"
+#PATH=$PATH:"$PREFIX/jdk/lib/jli"
 
 # android sdk
-$_isGradle_____ && PATH=$PATH:$dir_gradle____
-$_isSDK1_______ && PATH=$PATH:$dir_sdk1______
-$_isSDK2_______ && PATH=$PATH:$dir_sdk2______
+PATH=$PATH:"/opt/sdk/gradle-6.8.3/bin"
+PATH=$PATH:"/opt/sdk/cmdline-tools/bin"
+PATH=$PATH:"/opt/sdk/kotlin-native-linux-1.4.32/bin"
 
 # gitmux for git in tmux
-$_isGitmux_____ && PATH=$PATH:$dir_gitmux____
+PATH=$PATH:"$HOME/.config/myConfig/gitmux"
 
 
 # remove duplique path
 # PATH export with awk
 PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
- 
- 
+
+
 export PATH

@@ -1,7 +1,5 @@
 .bash_history
 .cache
-.github
-.gitmux.conf
 .npm
 .oh-my-zsh
 .vim
@@ -15,3 +13,4 @@ scripts
 storage
 taalim
 txhome
+~/.local/

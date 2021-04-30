@@ -1,24 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
-# font 
-#xset +fp ~/.fonts/ &
 
-# my key map config 
-exec sudo xmodmap ~/.Xmodmap & 
-# my langue is fr
-sudo setxkbmap fr &
 
-# run st terminat with dwm
-exec st &
+#xmodmap -pke | grep Alt_R
+xmodmap -e "keycode 108 = Super_L"  # reassign Alt_R to Super_L
+xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
+exec nitrogen --restore &
 
-# re load dwm if it is changed
 while true; do
     # Log stderror to a file 
     dwm 2> ~/.dwm.log
     # No error logging
     #dwm >/dev/null 2>&1
 done
-
-
-#sleep 15 &   
-
+sleep 2
+exec alacritty

@@ -6,8 +6,10 @@
 # \__,_| |_| |_|  \__,_| |___/
 
 # Diff Distribution {{{
+#_isTermux=false
+#_isVoid=true
   # we're on TERMUX
-  if $_isTermuxos; then
+  if $_isTermux; then
     alias i='apt install' # install pkg
   fi
 
@@ -57,25 +59,25 @@
 
 
 # bare git repo alias for dotfiles
-alias cgit='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias csta="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME status"
-alias clog="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME log"
-alias ccheckout="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME checkout"
-alias cadd="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME add"
-alias caddu="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME add -u"
-alias ccommit="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME commit -m"
-alias cpush="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME push"
-alias cpush-first="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME push --set-upstream origin"
-alias cpull="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME pull && source $HOME/.alias"
+alias cgit='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias csta="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME status"
+alias clog="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME log"
+alias ccheckout="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout"
+alias cadd="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add"
+alias caddu="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add -u"
+alias ccommit="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m"
+alias cpush="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME push"
+alias cpush-first="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME push --set-upstream origin"
+alias cpull="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME pull && source $HOME/.alias"
 alias cu='push-config.sh'
-# /usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  config --local status.showUntrackedFiles no
-# /usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME  checkout
+# /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME  config --local status.showUntrackedFiles no
+# /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME  checkout
 
 
 
 # alias mk='f(){ clear ; sudo mkdir -p "$1"; la; }; f'
 # alias rr='f(){ clear ; sudo rm -r "$1"; la; }; f'
-alias ddd='clear;du -ah --max-depth 1|sort --sort=human-numeric --human-numeric-sort -r'
+alias ddd='clear;du -ahd 1|sort --sort=human-numeric --human-numeric-sort -r'
 alias p="sudo chown -R $USER:$USER"
 
 
@@ -117,6 +119,7 @@ alias push='git push origin'
 alias push-first='git push --set-upstream origin'
 alias status='git status'
 alias master='git branch -M master'
+alias master='git branch -M termux'
 
 
 
@@ -273,3 +276,15 @@ alias valiasrc='v ~/.config/myConfig/my_alias'
 alias vrangerc='v ~/.config/ranger/rc.conf'
 
 alias pssh='sshpass -p 'root' ssh -o UserKnownHostsFile=\/dev\/null -o StrictHostKeyChecking=no '
+
+
+
+alias x="chmod +x"
+alias p="ping google.com"
+alias f="xbps-query -Rs "
+alias newbranch="git checkout -b "
+alias checkout='git checkout -m '
+alias master='git checkout -m master '
+alias initialise-git='git commit -m "initialisation"'
+alias upstream-git='/usr/bin/git push --set-upstream '
+

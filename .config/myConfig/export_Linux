@@ -5,22 +5,21 @@
 #| |___ /  \|  __/| |_| |  _ < | |  
 #|_____/_/\_\_|    \___/|_| \_\|_|  
 
-$_isShare______ && export XDG_DATA_HOME=$dir_share_____
-$_isDownload___ && export DOWNLOAD=$dir_Download__
-$_isAppProject_ && export AppProjects=$dir_appproject
+export XDG_DATA_HOME="$HOME/.local/share"
+export DOWNLOAD="$HOME/storage/downloads"
+export AppProjects="$HOME/storage/downloads/AppProjects"
 
 # JAVA_HOME
-$_isJdk________ && export JAVA_HOME=$PREFIX/jdk
-$_isJli________ && export LD_LIBRARY_PATH=$dir_jli_______
+export JAVA_HOME=$PREFIX/jdk
+export LD_LIBRARY_PATH="$PREFIX/jdk/lib/jli"
 
 
 # GRADLE_USER_HOME
-$_isGradlec____ && export GRADLE_USER_HOME=$dir_gradlec___
-$_isGradle_____ && export GRADLE_HOME=$dir_gradle____
+export GRADLE_USER_HOME="$PREFIX/android-sdk/gradlec"
+export GRADLE_HOME="$PREFIX/android-sdk/gradle-6.8.3/bin"
 
 
 # sdk android
-$_isAndroidHome && export ANDROID_HOME=$dir_andro_home
-$_isAndroidHome && export ANDROID_SDK_ROOT=$dir_andro_home
-$_isAndroidHome && export ANDROID_SDK_HOME=$dir_andro_home
-
+export ANDROID_HOME="$PREFIX/android-sdk"
+export ANDROID_SDK_ROOT="$PREFIX/android-sdk"
+export ANDROID_SDK_HOME="$PREFIX/android-sdk"

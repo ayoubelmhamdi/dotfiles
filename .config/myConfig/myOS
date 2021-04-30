@@ -35,12 +35,12 @@ else
     OS="Linux"
     VER=$(uname -r)
 fi
-OS=$(echo -e $OS |sed 's/^\([^ ]*\) .*/\1/g')
+OS="$(echo -e $OS |sed 's/^\([^ ]*\) .*/\1/g')"
 # echo $OS
 
 
 
-_isTermuxos=false
+_isTermux=false
 _isUbuntu=false
 _isDebian=false
 _isVoid=false
@@ -49,5 +49,6 @@ _isArch=false
 [[ "$OS" =~ Linux  ]] && _isTermux=true
 [[ "$OS" =~ Ubuntu ]] && _isUbuntu=true
 [[ "$OS" =~ Debian ]] && _isDebian=true
-[[ "$OS" =~ Void   ]] && _isVoid=true
+[[ "$OS" =~ void   ]] && _isVoid=true
 [[ "$OS" =~ Arch   ]] && _isArch=true
+# echo "$OS"
