@@ -74,6 +74,7 @@ alias cpush="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME push"
 alias cpush-first="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME push --set-upstream origin"
 alias cpull="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME pull && source $HOME/.alias"
 alias cu='push-config.sh'
+alias cdiff="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME diff"
 # /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME  config --local status.showUntrackedFiles no
 # /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME  checkout
 
