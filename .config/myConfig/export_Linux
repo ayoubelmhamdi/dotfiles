@@ -10,16 +10,16 @@ export DOWNLOAD="$HOME/storage/downloads"
 export AppProjects="$HOME/storage/downloads/AppProjects"
 
 # JAVA_HOME
-export JAVA_HOME=$PREFIX/jdk
-export LD_LIBRARY_PATH="$PREFIX/jdk/lib/jli"
+export JAVA_HOME=/usr/lib/jvm/openjdk11-bin
 
 
 # GRADLE_USER_HOME
-export GRADLE_USER_HOME="$PREFIX/android-sdk/gradlec"
-export GRADLE_HOME="$PREFIX/android-sdk/gradle-6.8.3/bin"
+export GRADLE_USER_HOME="/opt/sdk/gradlec"
+# export GRADLE_HOME="/opt/sdk/gradle/gradle-7.0.1"
+export GRADLE_HOME="/opt/sdk/gradle/gradle-6.5"
 
 
 # sdk android
-export ANDROID_HOME="$PREFIX/android-sdk"
-export ANDROID_SDK_ROOT="$PREFIX/android-sdk"
-export ANDROID_SDK_HOME="$PREFIX/android-sdk"
+export ANDROID_HOME="/opt/sdk/android"
+export ANDROID_SDK_ROOT="/opt/sdk/android"
+export ANDROID_SDK_HOME="/opt/sdk/android/DATA"
