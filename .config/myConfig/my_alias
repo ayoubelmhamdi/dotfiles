@@ -25,9 +25,11 @@
 
   # we're on VOID
   if $_isVoid; then
-    alias f='clear && sudo xbps-query -Rs' # find pkg
-    alias xapps='xbps-query -m | sed "s/-[0-9].*//"'  # insalled app
-    alias i='      sudo xbps-install -S' # install pkg
+    alias f="findAppInXbps"
+    # alias f="      clear && sudo xbps-query -Rs|awk '{print $2}'|sed  's/-[0-9,_.]*$//'" # find pkg
+    alias xapps='  xbps-query -m | sed "s/-[0-9].*//"'  # insalled app
+    alias i='      sudo xbps-install' # install pkg
+    alias is='     sudo xbps-install -S' # install pkg
     alias iu='     sudo xbps-install -Syuv' #upgrage
     alias svinit=' init_runit_sv' #i don't now
     alias unlock=' sudo xbps-pkgdb -a'  #fix xbps
@@ -47,10 +49,10 @@
     alias unlock="  sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
     alias cleanup=' sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
     # get fastest mirrors
-    alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-    alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-    alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-    alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+    alias mirror="  sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+    alias mirrord=" sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+    alias mirrors=" sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+    alias mirrora=" sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
   fi
 
 #}}}
@@ -60,6 +62,8 @@
 
 # bare git repo alias for dotfiles
 alias cgit='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+# bare git repo alias for .dotfiles
+alias cgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias csta="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME status"
 alias clog="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME log"
 alias ccheckout="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout"
@@ -77,7 +81,7 @@ alias cu='push-config.sh'
 
 # alias mk='f(){ clear ; sudo mkdir -p "$1"; la; }; f'
 # alias rr='f(){ clear ; sudo rm -r "$1"; la; }; f'
-alias ddd='clear;du -ahd 1|sort --sort=human-numeric --human-numeric-sort -r'
+alias ddd='clear;du -ahd 1||sort --sort=human-numeric --human-numeric-sort -r'
 alias p="sudo chown -R $USER:$USER"
 
 
@@ -115,8 +119,8 @@ alias checkout='git checkout'
 alias clone='git clone'
 alias fetch='git fetch'
 alias pull='git pull origin'
-alias push='git push origin'
-alias push-first='git push --set-upstream origin'
+alias push='git push '
+alias push-first='git push --set-upstream '
 alias status='git status'
 alias master='git branch -M master'
 alias master='git branch -M termux'
@@ -139,6 +143,7 @@ alias .5='cd ../../../../..'
 
 
 
+alias cat='bat -p'
 alias p5='cd /storage/emulated/0/Download/yyy/p5.js'
 
 
@@ -202,20 +207,20 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 ex (){
   if [ -f $1 ] ; then
     case $1 in
-      *.tar.bz2)   tar     $1   ;;
-      *.tar.gz)    tar     $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar    $1    ;;
-      *.tbz2)      tar     $1   ;;
-      *.tgz)       tar     $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *.deb)       ar x $1      ;;
-      *.tar.xz)    tar    $1    ;;
-      *.tar.zst)   unzstd $1    ;;      
+      *.tar.bz2)   tar        $1   ;;
+      *.tar.gz)    tar        $1   ;;
+      *.bz2)       bunzip2    $1   ;;
+      *.rar)       unrar x    $1   ;;
+      *.gz)        gunzip     $1   ;;
+      *.tar)       tar        $1   ;;
+      *.tbz2)      tar        $1   ;;
+      *.tgz)       tar        $1   ;;
+      *.zip)       unzip      $1   ;;
+      *.Z)         uncompress $1   ;;
+      *.7z)        7z x       $1   ;;
+      *.deb)       ar x       $1   ;;
+      *.tar.xz)    tar        $1   ;;
+      *.tar.zst)   unzstd     $1   ;;      
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -246,7 +251,7 @@ alias newbranch='git checkout -b'
 
 
 alias gc='git add . && git commit -m'
-alias commit='git add . && git commit -m'
+alias commit='git commit -m'
 
 alias log='git log'
 
@@ -270,7 +275,7 @@ alias stopvnc='vncserver-stop'
 
 
 
-##### dotfiles
+##### .dotfiles
 alias vzshrc='v ~/.zshrc'
 alias valiasrc='v ~/.config/myConfig/my_alias'
 alias vrangerc='v ~/.config/ranger/rc.conf'
@@ -281,7 +286,6 @@ alias pssh='sshpass -p 'root' ssh -o UserKnownHostsFile=\/dev\/null -o StrictHos
 
 alias x="chmod +x"
 alias p="ping google.com"
-alias f="xbps-query -Rs "
 alias newbranch="git checkout -b "
 alias checkout='git checkout -m '
 alias master='git checkout -m master '
