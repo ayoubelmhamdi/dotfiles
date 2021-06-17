@@ -31,8 +31,7 @@
 
 # ANDROID SDK {{
 # first you must and accepte licenses
-# yes |
-# sdkmanager --sdk_root=${ANDROID_HOME} --licenses 
+# yes | sdkmanager --sdk_root=${ANDROID_HOME} --licenses 
 # sdkmanager --sdk_root=${ANDROID_HOME} --version
 # echo "sdk.dir=${PREFIX}/android-sdk" >> local.properties
 # mkdir $HOME/android-sdk/
@@ -49,3 +48,9 @@
 
 
 #[[ -f $HOME/tt.log ]] && rm -rf $HOME/tt.log  >/dev/null 2>&1
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/root/.sdkman"
+[[ -s "/root/.sdkman/bin/sdkman-init.sh" ]] && source "/root/.sdkman/bin/sdkman-init.sh"
+
+alias luamake=/tmp/oooop/lua-language-server/3rd/luamake/luamake
