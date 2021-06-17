@@ -123,9 +123,10 @@ alias pull='git pull origin'
 alias push='git push '
 alias push-first='git push --set-upstream '
 alias status='git status'
+alias sta='git status'
 alias master='git branch -M master'
-alias master='git branch -M termux'
 
+alias gdiff='git diff'
 
 
 alias tag='git tag'
