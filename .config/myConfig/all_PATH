@@ -9,7 +9,7 @@
 
 # mes svripts
 if [ -e $HOME/scripts ]; then
-  for directory in "$HOME/scripts/my/*" ; do
+  for directory in $HOME/scripts/my/* ; do
     if [ -d "$directory" ]; then
       PATH="$PATH:$directory"
     fi
@@ -30,9 +30,11 @@ PATH=$PATH:"$HOME/.local/bin"
 #PATH=$PATH:"$PREFIX/jdk/lib/jli"
 
 # android sdk
-PATH=$PATH:"/opt/sdk/gradle-6.8.3/bin"
-PATH=$PATH:"/opt/sdk/cmdline-tools/bin"
-PATH=$PATH:"/opt/sdk/kotlin-native-linux-1.4.32/bin"
+# PATH=$PATH:"/opt/sdk/gradle/gradle-7.0.1/bin"
+# PATH=$PATH:"/opt/sdk/kotlin-native-linux-1.4.32/bin"
+PATH=$PATH:"/opt/sdk/gradle/gradle-6.5/bin"
+PATH=$PATH:"/opt/sdk/android/platform-tools"
+PATH=$PATH:"/opt/sdk/android/tools/bin"
 
 # gitmux for git in tmux
 PATH=$PATH:"$HOME/.config/myConfig/gitmux"
