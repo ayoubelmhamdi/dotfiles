@@ -33,3 +33,8 @@ cff() {
   printf "\033[1;4;35m%-${COLUMNS}s\033[00m"
   echo " "
 }
+
+findAppInXbps(){
+    clear
+    sudo xbps-query -Rs $1 |awk '{print $2}'|sed  's/-[0-9,_.]*$//'   # find pkg
+}
