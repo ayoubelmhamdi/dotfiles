@@ -1,3 +1,17 @@
 #!/bin/bash
 
+# Android termux
 export AAPT2=$PREFIX/android-sdk/gradlec/caches/modules-2/files-2.1/com.android.tools.build/aapt2
+
+# nvim
+export nvimdir=$HOME/.config/nvim
+export luadir=$HOME/.config/nvim/lua
+export nv_intelligence=$HOME/.config/nvim/lua/nv-intelligence
+export nv_lsp=$HOME/.config/nvim/lua/nv-lsp
+export nv_plugins=$HOME/.config/nvim/lua/nv-plugins
+export nv_settings=$HOME/.config/nvim/lua/nv-settings
+
+# config file
+export myConfig=$HOME/.config/myConfig
+export my_alias=$HOME/.config/myConfig/my_alias
+export export_Dirs=$HOME/.config/myConfig/export_Dirs
