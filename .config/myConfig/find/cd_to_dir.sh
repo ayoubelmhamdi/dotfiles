@@ -26,6 +26,7 @@ cff() {
        --follow                         \
        --exclude "dotfiles"             \
        --exclude ".git"                 \
+       --exclude ".local"                 \
        --exclude ".npm"                 \
        --exclude ".cache" . | fzf ))
   clear

@@ -8,7 +8,7 @@ xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
 exec nitrogen --restore &
 exec alacritty &
 exec firefox &
-./ayoubStatusBar.sh &
+~/scripts/suckless/dwm-ayoub/ayoubStatusBar.sh &
 
 
 while true; do
