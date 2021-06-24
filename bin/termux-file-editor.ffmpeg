@@ -1,8 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/bash
-# 15/05/2017 Gabi Tiplea
-
-# name=$(echo $1 | grep -Eo '[^/]+$')
-# ffmpeg -i ~/downloads/"$name" ~/storage/shared/convertedFiles/"$name"
-# rm ~/downloads/"$name"
-
-echo -e "Copyright 2017 Gabi Tiplea\n"

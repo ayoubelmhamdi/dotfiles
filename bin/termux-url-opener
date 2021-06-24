@@ -1,87 +1,85 @@
 #!/data/data/com.termux/files/usr/bin/zsh
+# TODO:
+# - youtube string to $var in function echo 
+# - start grep url that able to download after question
 url=$1
-echo "What should I do with $url ?"
-echo "c) cut youtube url by server"
-echo "p) cut youtube url without server"
-echo "g) gradle compile"
-echo "cl) clone github"
-echo "y) download youtube video to movies-folder"
-echo "u) download youtube video and convert it to mp3 (music-folder)"
-echo "s) download with scdl (soundcloud)"
-echo "w) wget file to download-folder" 
-echo "x) nothing"
+SITE=$(echo $url  | sed 's/^.*\.\(.*\)\..*\/.*/\1/')
+SITE=$(echo $SITE | sed 's/http.*\/\([a-zA-Z0-9].*\)\..*/\1/')
 
-read CHOICE
-case $CHOICE in
- c)
-   echo "start video time mm:ss"
-   read STARTVIDEO
-   echo "end video time mm:ss"
-   read ENDVIDEO
-   echo
-   export URL=$url
-   export STARTVIDEO
-   export ENDVIDEO
-   source $HOME/scripts/my/server/splitByServer.sh
- ;;
- p)
-   echo "start video time mm:ss"
-   read STARTVIDEOP
-   echo "end video time mm:ss"
-   read ENDVIDEOP
-   echo
-   export URLP=$url
-   export STARTVIDEOP
-   export ENDVIDEOP
-   source $HOME/scripts/my/video/portionFromYoutube.sh
- ;;
- g)
-   export JAVA_HOME=$PREFIX/jdk
-   export LD_LIBRARY_PATH=$PREFIX/jdk/lib:$PREFIX/jdk/lib/jli
-   export GRADLE_USER_HOME=$HOME/android-sdk/gradlec661
+my_Choix() {
+  echo "What should I do with $url ?"
+  echo
+  echo
+  # echo "cut-server) cut youtube url by server"
+  echo "c   : cut youtube url without server"
+  echo "d|t : download youtube video to movies-folder"
+  echo "u   : download youtube video and convert it to mp3 (music-folder)"
 
-   cd $HOME
-   # yes | rm -R theapp
+  read CHOICEX
+    case $CHOICEX in
+     d|t|D|T)
+       youtube-dl -o "/storage/emulated/0/Movies/%(title)s.%(ext)s" $url
+     ;;
+     cut-server)
+       echo "start video time mm:ss"
+       read STARTVIDEO
+       echo "end video time mm:ss"
+       read ENDVIDEO
+       echo
+       export URL=$url
+       export STARTVIDEO
+       export ENDVIDEO
+       source $HOME/scripts/my/server/splitByServer.sh
+     ;;
+     c)
+       echo "start video time mm:ss"
+       read STARTVIDEOP
+       echo "end video time mm:ss"
+       read ENDVIDEOP
+       echo
+       export URLP=$url
+       export STARTVIDEOP
+       export ENDVIDEOP
+       source $HOME/scripts/my/video/portionFromYoutube.sh
+     ;;
+     m)
+       echo "Artist"
+       echo "Title"
+       echo "Album"
+       read album
+       youtube-dl --extract-audio --audio-format mp3 --output "/storage/emulated/0/Music/$artist-$title.%(ext)s" $url
+       mid3v2 /storage/emulated/0/Music/$artist-$title.mp3
+     ;;
+     *)
+      clear
+      my_Choix
+     ;;
+  esac
+}
 
-   git clone $1 theapp
+case $SITE in
+   youtube|youtu|facebook)
+       my_Choix
+   ;;
 
-   cd theapp
+   xnxx)
+     echo "it's xnxx"
+     youtube-dl -o "/storage/emulated/0/Movies/.yyy/%(title)s.%(ext)s" $url
+   ;;
 
-   sed -i '/buildToolsVersion/c buildToolsVersion "30.0.0-rc1"' $HOME/theapp/app/build.gradle
-   sed -i '/com.android.tools.build:gradle/c classpath "com.android.tools.build:gradle:3.6.4"  ' $HOME/theapp/build.gradle
-   sed -i '/compileSdkVersion/c compileSdkVersion 29' $HOME/theapp/app/build.gradle
-   sed -i '/compileSdkVersion/c compileSdkVersion 29' $HOME/theapp/app/build.gradle
+   github)
+     cd $HOME/
+     git clone $url
+   ;;
 
-   echo "sdk.dir=/data/data/com.termux/files/home/android-sdk" >> local.properties
+   soundcloud)
+     scdl -l $url --path /storage/emulated/0/Music
+   ;;
 
-   bash $HOME/android-sdk/gradle-6.6.1/bin/gradle assembleDebug
- ;;
- cl)
-   cd $HOME/
-   git clone $url
- ;;
- y)
-   youtube-dl -o "/storage/emulated/0/Movies/%(title)s.%(ext)s" $url
- ;;
- u)
-   echo "Artist"
-   read artist
-   echo "Title"
-   read title
-   echo "Album"
-   read album
-   youtube-dl --extract-audio --audio-format mp3 --output "/storage/emulated/0/Music/$artist-$title.%(ext)s" $url
-   mid3v2 -a $artist -t $title -A $album /storage/emulated/0/Music/$artist-$title.mp3
- ;;
- s)
-   scdl -l $url --path /storage/emulated/0/Music
-   echo "s need some work"
- ;;
- w)
-   cd ~/storage/downloads
-   wget $url
- ;;
- x)
-   echo "bye"
- ;; 
+   *)
+     cd ~/storage/downloads
+     wget $url
+   ;;
+
 esac
+sleep 3
