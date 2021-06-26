@@ -26,33 +26,33 @@
   # we're on VOID
   if $_isVoid; then
     alias f="findAppInXbps"
-    # alias f="      clear && sudo xbps-query -Rs|awk '{print $2}'|sed  's/-[0-9,_.]*$//'" # find pkg
-    alias xapps='  xbps-query -m | sed "s/-[0-9].*//"'  # insalled app
-    alias i='      sudo xbps-install' # install pkg
-    alias is='     sudo xbps-install -S' # install pkg
-    alias iu='     sudo xbps-install -Syuv' #upgrage
-    alias svinit=' init_runit_sv' #i don't now
-    alias unlock=' sudo xbps-pkgdb -a'  #fix xbps
-    alias xrm='    sudo xbps-remove -vR'   #remove pkg
-    alias xro='    sudo xbps-remove -vROo' #remove pkg & dependance
+    # alias f="clear && sudo xbps-query -Rs|awk '{print $2}'|sed  's/-[0-9,_.]*$//'" # find pkg
+    alias xapps='xbps-query -m | sed "s/-[0-9].*//"'  # insalled app
+    alias i='sudo xbps-install' # install pkg
+    alias is='sudo xbps-install -S' # install pkg
+    alias iu='sudo xbps-install -Syuv' #upgrage
+    alias svinit='init_runit_sv' #i don't now
+    alias unlock='sudo xbps-pkgdb -a'  #fix xbps
+    alias xrm='sudo xbps-remove -vR'   #remove pkg
+    alias xro='sudo xbps-remove -vROo' #remove pkg & dependance
   fi
 
   # we're on ARCH
   if $_isArch; then
-    alias f="       pkgfile "				#
-    alias i="       sudo pacman -S "			#
-    alias iy="      sudo pacman -Sy --noconfirm"	#
-    alias iyy="     sudo pacman -Syy --noconfirm"	#
-    alias iyyu='    sudo pacman -Syyu'			# update only standard pkgs
-    alias yua="     yay -Sua --noconfirm --noconfirm"	# update only AUR pkgs
-    alias yyu="     yay -Syu --noconfirm"             	# update standard pkgs and AUR pkgs
-    alias unlock="  sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
-    alias cleanup=' sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+    alias f="pkgfile "				#
+    alias i="sudo pacman -S "			#
+    alias iy="sudo pacman -Sy --noconfirm"	#
+    alias iyy="sudo pacman -Syy --noconfirm"	#
+    alias iyyu='sudo pacman -Syyu'			# update only standard pkgs
+    alias yua="yay -Sua --noconfirm --noconfirm"	# update only AUR pkgs
+    alias yyu="yay -Syu --noconfirm"             	# update standard pkgs and AUR pkgs
+    alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
+    alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
     # get fastest mirrors
-    alias mirror="  sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-    alias mirrord=" sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-    alias mirrors=" sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-    alias mirrora=" sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+    alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+    alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+    alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+    alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
   fi
 
 #}}}
@@ -236,6 +236,7 @@ ex (){
 alias sm='scim'
 alias c='clear'
 alias v='nvim '
+alias vc='export XDG_DATA_HOME="~/TEST-Cris/local";export XDG_CONFIG_HOME="~/TEST-Cris"; nvim'
 alias pi='ping google.com'
 alias void='~/start-void.sh'
 
@@ -252,7 +253,7 @@ alias goto='git checkout'
 alias newbranch='git checkout -b'
 
 
-alias gc='git add . && git commit -m'
+alias gc='git clone --depth=1'
 alias commit='git commit -m'
 
 alias log='git log'
