@@ -253,7 +253,7 @@ alias goto='git checkout'
 alias newbranch='git checkout -b'
 
 
-alias gc='git clone --depth=1'
+alias gc='git clone --depth=1 --branch=master'
 alias commit='git commit -m'
 
 alias log='git log'
