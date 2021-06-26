@@ -9,7 +9,7 @@
 
 # mes svripts
 if [ -e $HOME/scripts ]; then
-  for directory in $HOME/scripts/my/* ; do
+  for directory in $HOME/scripts/*/* ; do
     if [ -d "$directory" ]; then
       PATH="$PATH:$directory"
     fi
