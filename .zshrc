@@ -30,6 +30,9 @@
 
 
 # ANDROID SDK {{
+# 
+# cmdline-tools /4.0 ==>  you can't rename this folder to Anothername
+# also you must locate under $ANDROID_HOME
 # first you must and accepte licenses
 # yes | sdkmanager --sdk_root=${ANDROID_HOME} --licenses 
 # sdkmanager --sdk_root=${ANDROID_HOME} --version
