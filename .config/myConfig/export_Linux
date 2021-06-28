@@ -22,4 +22,4 @@ export GRADLE_HOME="/opt/sdk/gradle/gradle-6.5"
 # sdk android
 export ANDROID_HOME="/opt/sdk/android"
 export ANDROID_SDK_ROOT="/opt/sdk/android"
-export ANDROID_SDK_HOME="/opt/sdk/android/DATA"
+export ANDROID_SDK_HOME="/opt/sdk/android-HOME"
