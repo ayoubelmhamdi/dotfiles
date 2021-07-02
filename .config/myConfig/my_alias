@@ -69,7 +69,7 @@ alias clog="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME log"
 alias ccheckout="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout"
 alias cadd="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add"
 alias caddu="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME add -u"
-alias ccommit="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m"
+alias cc='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m'
 alias cpush="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME push"
 alias cpush-first="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME push --set-upstream origin"
 alias cpull="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME pull && source $HOME/.alias"
@@ -254,7 +254,7 @@ alias newbranch='git checkout -b'
 
 
 alias gc='git clone --depth=1 --branch=master'
-alias commit='git commit -m'
+alias co='git commit -m'
 
 alias log='git log'
 
