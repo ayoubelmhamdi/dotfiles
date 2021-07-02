@@ -1,0 +1,55 @@
+super + {ctrl, shift} + 0
+	sudo pkill openvpn && \
+	sleep 0.5 && \
+	{poweroff || poweroff, systemctl reboot || systemctl reboot}
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+alt + z
+	zathura
+
+#suspend
+control+alt+super + s 
+		  systemctl suspend 
+
+## #mpd vol up
+## shift + XF86AudioRaiseVolume 
+##      mpc volume +4 
+## 
+## #mpd vol down
+## shift + XF86AudioLowerVolume 
+##      mpc volume -4 
+
+## change langague by scripte.sh
+
+## paint lunch
+
+## brithniss
+
+# Launch web browser
+super + f
+    firefox -P google
+
+# Launch whatsapp on firefox
+super + shift + f
+    firefox -P whatsapp
+
+# Take a screenshot
+Print
+    flameshot full -p ~/Pictures
+
+# screenshot select area
+shift + Print
+    flameshot gui
+
+
+# keybroad layout us
+alt + shift + u
+    setxkbmap us
+    
+# keybroad layot arabic
+alt + shift + a
+    setxkbmap ara
+    
