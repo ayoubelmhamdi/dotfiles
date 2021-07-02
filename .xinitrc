@@ -1,5 +1,10 @@
 #!/bin/bash
 
+###
+### you should be run startup apps in background ,
+### if any app not run in  backgroud , script stop at this app at the end of this app
+### so you can run some script in forgroud (^_^)
+
 
 # dpi and font
 # xrdb -merge ~/.Xresource
@@ -9,7 +14,7 @@ xmodmap -e "keycode 108 = Super_L"  # reassign Alt_R to Super_L
 xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
 exec nitrogen --restore &
 exec alacritty &
-exec firefox 
+exec firefox &
 ~/scripts/suckless/dwm-ayoub/ayoubStatusBar.sh &
 sxhkd &
 
