@@ -14,7 +14,7 @@ xmodmap -e "keycode 108 = Super_L"  # reassign Alt_R to Super_L
 xmodmap -e "remove mod1 = Super_L"  # make sure X keeps it out of the mod1 group
 exec nitrogen --restore &
 exec alacritty &
-exec firefox &
+# exec firefox &
 ~/scripts/suckless/dwm-ayoub/ayoubStatusBar.sh &
 sxhkd &
 

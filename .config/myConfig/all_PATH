@@ -38,6 +38,7 @@ PATH=$PATH:"/opt/sdk/android/platform-tools"
 
 PATH=$PATH:"/opt/sdk/android/cmdline-tools/4.0/bin"
 PATH=$PATH:"/opt/sdk/android/cmdline-tools/4.0"
+PATH=$PATH:"/opt/sdk/android/tools/bin"
 PATH=$PATH:"/opt/sdk/android/tools"
 
 # PATH=$PATH:"/opt/sdk/android/tools-2/bin"
