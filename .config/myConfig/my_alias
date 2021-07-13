@@ -127,10 +127,9 @@ alias sta='git status'
 alias master='git branch -M master'
 
 alias gdiff='git diff'
+alias gr='git remote set-url origin'
 
 
-alias tag='git tag'
-alias newtag='git tag -a'
 
 
 #++++++++++++++++++++++++++++++++++++++++
