@@ -1,0 +1,12 @@
+**/[0-9a-f]*-[0-9a-f]*-[0-9a-f]*-[0-9a-f]*-[0-9a-f]*/
+**/[0-9a-f]*-[0-9a-f]*-[0-9a-f]*-[0-9a-f]*-[0-9a-f].jsonl
+
+#local-conf/*.jsonl
+local-conf/backups/
+local-conf/cache/
+local-conf/plugins/
+local-conf/projects/
+local-conf/sessions/
+
+nvim.log
+prompts*.md

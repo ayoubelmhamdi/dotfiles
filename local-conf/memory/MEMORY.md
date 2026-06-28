@@ -1,0 +1,1 @@
+- [Shell style](shell-style.md) — hardcoded, few funcs/vars, idempotent, POSIX sh, ask before deciding
