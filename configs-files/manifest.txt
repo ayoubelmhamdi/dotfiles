@@ -1,3 +1,33 @@
+
+# TODO:
+# touch "$HOME/env.zsh"
+# $HOME/env.zsh|$HOME/.config/zprofile/env.zsh
+# $HOME/scripts/termux-sc/termux-url-opener|$HOME/bin/termux-url-opener
+
+
+
+# ---- System ---------------------------------------------------------
+# SYSTEM etc/50-touchpad.conf|/etc/50-touchpad.conf|644||sudo
+# SYSTEM etc/default/grub|/etc/default/grub|644||sudo
+# SYSTEM etc/fstab|/etc/fstab|644||sudo
+# SYSTEM etc/sudoers|/etc/sudoers|644||sudo
+# SYSTEM etc/sv/agetty-tty1/conf|/etc/sv/agetty-tty1/conf|644|void|sudo
+
+#FIX chrome/config.json|~/.config/chrom_json_keybroad/config.json|644
+
+# TODO: remode the sudo, i am fucking using sudo here because the need the 777
+# permisions and the target link
+# /usr/share/examples/wireplumber/10-wireplumber.conf was 664, i try to change
+# the the local symlink to 664 but symlinks weirdly on my system always need to
+# be exsit with 777. ./main script check if already exist the
+# ~/.config/pipewire/pipewire.conf.d/10-wireplumber.conf file, and has the some
+# oersmision as manifest to make sure everythings linked correctly without
+# surprise but this genios mecanisqme failed with symlink to toot files like /etc.
+pipewire/pipewire.conf.d/10-wireplumber.conf|~/.config/pipewire/pipewire.conf.d/10-wireplumber.conf|777|sudo
+pipewire/pipewire.conf.d/20-pipewire-pulse.conf|~/.config/pipewire/pipewire.conf.d/20-pipewire-pulse.conf|777|sudo
+
+
+
 # ---- User ---------------------------------------------------------
 xinitrc/.xinitrc|~/.xinitrc|644
 xmodmap/.Xmodmap|~/.Xmodmap|644
@@ -90,34 +120,12 @@ zsh/void.zsh|~/.config/zsh/void.zsh|644|void
 zsh/zsh-zle-completion.zsh|~/.config/zsh/zsh-zle-completion.zsh|644|universe
 zsh/zsh-my-completion.zsh|~/.config/zsh/zsh-my-completion.zsh|644|universe
 # somethings weird on my fpath/
-zsh/fpath/|~/.config/fpath/|644|universe
+zsh/fpath/|~/.config/fpath/|755|universe
 
 
 # ---- latex -------------------------------------------------------
 # latex2025/latexmk/.latexmkrc|~/.latexmkrc|644
 # latex2025/latexmk/latexmk.pl|/texmf-dist/scripts/latexmk/latexmk.pl|
-# latex2025/tlpkg/TeXLive/|~/tlpkg/TeXLive/|
+# latex2025/tlpkg/TeXLive/|~/tlpkg/TeXLive/|755
 # latex2025/zsh/latex.zsh|~/.config/zsh/latex.zsh|644|universe
 # ---- latex end -------------------------------------------------------
-
-
-
-# TODO:
-# touch "$HOME/env.zsh"
-# $HOME/env.zsh|$HOME/.config/zprofile/env.zsh
-# $HOME/scripts/termux-sc/termux-url-opener|$HOME/bin/termux-url-opener
-
-
-
-# ---- System ---------------------------------------------------------
-# SYSTEM etc/50-touchpad.conf|/etc/50-touchpad.conf|644||sudo
-# SYSTEM etc/default/grub|/etc/default/grub|644||sudo
-# SYSTEM etc/fstab|/etc/fstab|644||sudo
-# SYSTEM etc/sudoers|/etc/sudoers|644||sudo
-# SYSTEM etc/sv/agetty-tty1/conf|/etc/sv/agetty-tty1/conf|644|void|sudo
-
-#FIX chrome/config.json|~/.config/chrom_json_keybroad/config.json|644
-#FIX pipewire/10-wireplumber.conf|~/.config/pipewire/pipewire.conf.d/10-wireplumber.conf|644
-#FIX pipewire/20-pipewire-pulse.conf|~/.config/pipewire/pipewire.conf.d/20-pipewire-pulse.conf|644
-
-
