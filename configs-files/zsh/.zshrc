@@ -191,6 +191,58 @@ xcp-cookies(){
     /data/projects/py/netscape-cookies-2-json/main.py "$1" | xclip -selection clipboard
 }
 
+run_claude(){
+    local token head_token t found
+    init_claude_json='
+    {
+     "customApiKeyResponses": {
+       "approved": [
+         "bd59d2a85ceeb76f78f7",
+         "8abad0a08c62d5c01c0a"
+       ]
+     },
+     "hasCompletedOnboarding": true
+    }'
+
+    tokens_name=(
+        "2151"
+        "10ef"
+    )
+    [ $# -ne 0 ] || { echo "ERROR: no arg provided" >&2; return 1; }
+    token="$1";shift
+    head_token="${token:6:4}"
+
+    [ "${#token}" -eq 54 ] || { echo "api $head_token... length ${#token} not 54 char" >&2; return 1; }
+    # associative array not work in bash and zsh in the same way.
+    # so normal loop are enaugh to me.
+    found=0
+    for t in "${tokens_name[@]}"; do
+        [ "$t" = "$head_token" ] && { found=1; break; }
+    done
+    [ "$found" -eq 1 ] || { echo "first 10 head token '$head_token' doesn't exist in \$tokens_name" >&2; return 1; }
+
+
+    mkdir -p ./local-conf || { echo "can not create ./local-conf/." >&2; return 1; }
+
+    args=()
+    if [ -f local-conf/.claude.json ];then
+        args+=( --continue )
+    else
+        echo "$init_claude_json" > ./local-conf/.claude.json || { echo "can not create ./local-conf/.claude.json" >&2; return 1; }
+        # echo "$init_claude_json" to ./local-conf/.claude.json 
+    fi
+
+
+    ANTHROPIC_API_KEY="$token"                                     \
+    ANTHROPIC_BASE_URL="https://cc.freemodel.dev"                  \
+                                                                   \
+    ANTHROPIC_TOKEN_NAME="$head_token"                             \
+    CLAUDE_CONFIG_DIR=./local-conf                                 \
+                                                                   \
+    claude "${args[@]}" "$@"
+}
+
+
 # search if keybind apply or not?
 # bindkey | grep '\[\[3~'
 # bindkey -e
