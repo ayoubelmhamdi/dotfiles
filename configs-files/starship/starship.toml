@@ -1,0 +1,205 @@
+format = """
+$env_var\
+$directory\
+$sudo\
+$username\
+$hostname\
+$git_branch\
+$git_status\
+$git_commit\
+$git_state\
+$git_metrics\
+$python\
+$cmd_duration\
+$custom\
+$memory_usage\
+$status\
+$line_break\
+$character"""
+#-1$conda\
+#-1$dart\
+#-1$deno\
+#-1$golang\
+#-1$java\
+#-1$kotlin\
+#-1$lua\
+#-1$swift\
+
+# $nodejs\
+# $jobs\
+# $rust\
+
+
+scan_timeout = 1000
+command_timeout = 1000
+
+# [sudo]
+# disabled = false
+# format = "[$symbol ]($style)"
+
+# [username]
+# format = "[$user]($style)@"
+# style_user = "bold bright-purple"
+
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[openstack]
+disabled = true
+
+[singularity]
+disabled = true
+
+[env_var.FOO]
+format = '[$env_value]($style)'
+style = 'bold blue'
+
+[directory]
+style	= 'bold blue'
+read_only = " "
+# fish_style_pwd_dir_length = 3
+truncate_to_repo = true
+format = '[$path]($style)[$read_only]($read_only_style) '
+
+[vcsh]
+disabled = true
+
+[git_branch]
+# symbol = "🌱 "
+truncation_symbol = ""
+# ignore_branches = ["master", "main"]
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "|  ${count} "
+behind = "🐢×${count} "
+diverged = "🔱 🏎️ 💨×{ahead_count} 🐢×${behind_count} "
+untracked = "| 🛤️ ×${count} "
+stashed = "📦 "
+modified = "| [ ${count} ](red)"
+staged = "🗃️ ×${count} "
+renamed = "📛×${count} "
+deleted = "🗑️ ×${count} "
+style = "brightwhite"
+format = "$all_status$ahead_behind"
+
+[fill]
+symbol = " "
+
+[docker_context]
+disabled = true
+symbol = " "
+
+[package]
+symbol = "📦 "
+format = "[$symbol$version]($style) "
+version_format = "${raw}"
+
+[cobol]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[helm]
+disabled = true
+
+[julia]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[rlang]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[scala]
+disabled = true
+
+[terraform]
+disabled = true
+
+[vlang]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[zig]
+disabled = true
+
+[conda]
+format = '[$symbol$environment]($style) '
+
+[crystal]
+disabled = true
+
+[character]
+#   ❯
+success_symbol = '[\$](bold)'
+error_symbol = '[\$](bold)'
+
+[memory_usage]
+disabled = false
+threshold = 90
+format = "$symbol[$ram]($style)"
+style = "bold dimmed red"
+
+[status]
+disabled = false
+pipestatus = true
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
+min_time = 5_000
+
+
+# [custom.direnv]
+# # command = "cat .envrc | grep -v -E '^[ ]*#|^$' | wc -l"
+# files = [".envrc"]
+# style = "bg:white fg:black"
+# format = "[.envrc]($style) "
+
+[python]
+format = '[v_${version} ]($style)'
+version_format = 'v${major}.${minor}'

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+OS=`uname -s`
+
+if [ -f /etc/X11/xinit/xinitrc ]; then
+  exec sh /etc/X11/xinit/xinitrc
+fi
+
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+
+# INFO: why xterm
+xterm -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+
+# INFO: what is ghe twm
+twm &

@@ -1,0 +1,123 @@
+# ---- User ---------------------------------------------------------
+xinitrc/.xinitrc|~/.xinitrc|644
+xmodmap/.Xmodmap|~/.Xmodmap|644
+inputrc/.inputrc|~/.inputrc|644
+
+gtk2/gtkfilechooser.ini|~/.config/gtk-2.0/gtkfilechooser.ini|644
+gtk2/.gtkrc-2.0|~/.gtkrc-2.0|644
+gtk3/bookmarks|~/.config/gtk-3.0/bookmarks|644
+gtk3/custom-papers|~/.config/gtk-3.0/custom-papers|644
+gtk3/settings.ini|~/.config/gtk-3.0/settings.ini|644
+fonts/|~/.fonts/|755
+
+alacritty/alacritty.toml|~/.config/alacritty/alacritty.toml|644
+alacritty/alacritty.yml|~/.config/alacritty/alacritty.yml|644
+cargo/config.toml|~/.config/cargo/config.toml|644
+direnv/config.toml|~/.config/direnv/config.toml|644
+gdb/gdbinit|~/.config/gdb/gdbinit|644
+git/.gitconfig|~/.gitconfig|644
+git/ignore|~/.config/git/ignore|644
+hypr/hyprland.conf|~/.config/hypr/hyprland.conf|644
+i3/config|~/.config/i3/config|644
+i3status-rust/config.toml|~/.config/i3status-rust/config.toml|644
+jupyter/custom.css|~/.jupyter/custom/custom.css|644
+jupyter/custom.js|~/.jupyter/custom/custom.js|644
+kitty/gruvbox_dark.conf|~/.config/kitty/gruvbox_dark.conf|644
+kitty/gruvbox_light.conf|~/.config/kitty/gruvbox_light.conf|644
+kitty/kitty.conf|~/.config/kitty/kitty.conf|644
+matplotlib/matplotlibrc|~/.config/matplotlib/matplotlibrc|644
+mpv/input.conf|~/.config/mpv/input.conf|644
+mpv/mpv.conf|~/.config/mpv/mpv.conf|644
+mpv/osc.conf|~/.config/mpv/script-opts/osc.conf|644
+nsxiv/key-handler|~/.config/nsxiv/exec/key-handler|755
+shellcheck/shellcheckrc|~/.config/shellcheckrc|644
+starship/starship.toml|~/.config/starship/starship.toml|644
+sxhkd/sxhkdrc|~/.config/sxhkd/sxhkdrc|644
+sxiv/key-handler|~/.config/sxiv/exec/key-handler|755
+tealdeer/config.toml|~/.config/tealdeer/config.toml|644
+uncrustify/editorconfig|~/.config/uncrustify/editorconfig|644
+uncrustify/uncrustify.cfg|~/.config/uncrustify/uncrustify.cfg|644
+vnc/closevnc.sh|~/.vnc/closevnc.sh|755
+vnc/config|~/.vnc/config|644
+vnc/startvnc.sh|~/.vnc/startvnc.sh|755
+vnc/xstartup.turbovnc|~/.vnc/xstartup.turbovnc|755
+vnc/xstartup|~/.vnc/xstartup|755
+waybar/config.jsonc|~/.config/waybar/config.jsonc|644
+waybar/power_menu.xml|~/.config/waybar/power_menu.xml|644
+wezterm/wezterm.lua|~/.config/wezterm/wezterm.lua|644
+zathura/zathurarc|~/.config/zathura/zathurarc|644
+zed/keymap.json|~/.config/zed/keymap.json|644
+zed/settings.json|~/.config/zed/settings.json|644
+zed/tasks.json|~/.config/zed/tasks.json|644
+
+# ---- tmux --------------------------------------------------------
+tmux/.tmux.conf|~/.tmux.conf|644
+tmux/gruvbox.conf|~/.config/tmux/gruvbox.conf|644
+tmux/gruvbox2.conf|~/.config/tmux/gruvbox2.conf|644
+tmux/keymap.conf|~/.config/tmux/keymap.conf|644
+tmux/plugin.conf|~/.config/tmux/plugin.conf|644
+tmux/settings.conf|~/.config/tmux/settings.conf|644
+tmux/statusBar.conf|~/.config/tmux/statusBar.conf|644
+tmux/switchto.conf|~/.config/tmux/switchto.conf|644
+tmux/viMode.conf|~/.config/tmux/viMode.conf|644
+
+
+# ---- zsh ---------------------------------------------------------
+zsh/.zshrc|~/.zshrc|644|universe
+zsh/.zprofile|~/.zprofile|644|universe
+zsh/zsh-export.zsh|~/.config/zprofile/zsh-export.zsh|644
+zsh/zsh-paths.zsh|~/.config/zprofile/zsh-paths.zsh|644
+zsh/zsh-post.zsh|~/.config/zsh-post/zsh-post.zsh|644
+
+
+zsh/extend-cd.zsh|~/.config/zsh/extend-cd.zsh|644|universe
+zsh/fzf.zsh|~/.config/zsh/fzf.zsh|644|universe
+zsh/matlab.zsh|~/.config/zsh/matlab.zsh|644
+zsh/mk.zsh|~/.config/zsh/mk.zsh|644|universe
+zsh/nnn.zsh|~/.config/zsh/nnn.zsh|644|universe
+zsh/nvidia.zsh|~/.config/zsh/nvidia.zsh|644|universe
+zsh/wine.zsh|~/.config/zsh/wine.zsh|644|universe
+zsh/zsh-alias.zsh|~/.config/zsh/zsh-alias.zsh|644|universe
+
+
+
+zsh/termux2.zsh|~/.config/zsh/termux2.zsh|644|termux
+zsh/void-completion.zsh|~/.config/zsh/void-completion.zsh|644|void
+zsh/void.zsh|~/.config/zsh/void.zsh|644|void
+#FIX zsh/void-sudo.zsh|~/.config/zsh/sudo.zsh|644|void|sudo
+
+
+zsh/zsh-zle-completion.zsh|~/.config/zsh/zsh-zle-completion.zsh|644|universe
+zsh/zsh-my-completion.zsh|~/.config/zsh/zsh-my-completion.zsh|644|universe
+# somethings weird on my fpath/
+zsh/fpath/|~/.config/fpath/|644|universe
+
+
+# ---- latex -------------------------------------------------------
+# latex2025/latexmk/.latexmkrc|~/.latexmkrc|644
+# latex2025/latexmk/latexmk.pl|/texmf-dist/scripts/latexmk/latexmk.pl|
+# latex2025/tlpkg/TeXLive/|~/tlpkg/TeXLive/|
+# latex2025/zsh/latex.zsh|~/.config/zsh/latex.zsh|644|universe
+# ---- latex end -------------------------------------------------------
+
+
+
+# TODO:
+# touch "$HOME/env.zsh"
+# $HOME/env.zsh|$HOME/.config/zprofile/env.zsh
+# $HOME/scripts/termux-sc/termux-url-opener|$HOME/bin/termux-url-opener
+
+
+
+# ---- System ---------------------------------------------------------
+# SYSTEM etc/50-touchpad.conf|/etc/50-touchpad.conf|644||sudo
+# SYSTEM etc/default/grub|/etc/default/grub|644||sudo
+# SYSTEM etc/fstab|/etc/fstab|644||sudo
+# SYSTEM etc/sudoers|/etc/sudoers|644||sudo
+# SYSTEM etc/sv/agetty-tty1/conf|/etc/sv/agetty-tty1/conf|644|void|sudo
+
+#FIX chrome/config.json|~/.config/chrom_json_keybroad/config.json|644
+#FIX pipewire/10-wireplumber.conf|~/.config/pipewire/pipewire.conf.d/10-wireplumber.conf|644
+#FIX pipewire/20-pipewire-pulse.conf|~/.config/pipewire/pipewire.conf.d/20-pipewire-pulse.conf|644
+
+

@@ -1,0 +1,119 @@
+[theme.overrides]
+separator = ""
+idle_bg = "#222222"
+
+good_bg = "#222222"
+# good_fg = "#222222"
+# idle_fg = "#ff00ff"
+# separator_bg = "#222222"
+# separator_fg = "#222222"
+# alternating_tint_bg = "#222222"
+# alternating_tint_fg = "#222222"
+# critical_bg = "#222222"
+# critical_fg = "#222222"
+# info_bg = "#222222"
+# info_fg = "#222222"
+# separator = "#222222"
+# warning_bg = "#222222"
+# warning_fg = "#222222"
+
+
+# [global]
+# log_file = "/tmp/i3status-rs.log"
+
+[icons]
+icons = "awesome6"
+[icons.overrides]
+cpu = ""
+
+# [[block]]
+# block = "disk_space"
+# path = "/"
+# info_type = "available"
+# unit = "GB"
+# interval = 20
+# warning = 1.1
+# alert = 1.0
+# separator=" "
+
+# [[block]]
+# block = "custom"
+# interval = 1
+# command = 'echo  [ $(xclip -o -sel clip | xargs | rg -o "^.{0,12}")...]'
+
+# [[block]]
+# block = "custom"
+# interval = 1
+# command = '/tmp/new_1/get_ip'
+
+
+[[block]]
+block = "custom"
+format = "$text \\|"
+command = "get_bandwith"
+interval = 1
+# json = true
+
+# [[block]]
+# block = "custom"
+# command = "get_ip"
+# json = true
+# interval = 5
+
+[[block]]
+block = "cpu"
+format = " $utilization "
+interval = 1
+
+
+[[block]]
+block = "memory"
+#format = " $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) "
+format = "\\| $mem_used.eng(prefix:Mi) "
+#format_mem = "{mem_used}"
+#display_type = "memory"
+#interval = 5
+#warning_mem = 80
+#critical_mem = 95
+icons_format = "| "
+
+
+# [[block]]
+# device = "wlp3s0"
+# block = "net"
+# format= "{ip} {speed_down:4;K}"
+# interval = 1
+# icons_format = "| "
+
+
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
+format  = "\\| $icon"
+cycle = [99, 60]
+missing_format = ""
+[block.theme_overrides]
+idle_bg="#202020"
+
+# [[block]]
+# block = "battery"
+# driver = "sysfs" # "apc_ups", or "upower" or "sysfs"
+# [block.theme_overrides]
+# idle_bg="#202020"
+# good_fg = "#b0b0b0"
+# info_bg = "#202020"
+
+
+# [[block]]
+# block = "sound"
+# format = "{volume:5#100}"
+# icons_format = ""
+# [block.theme_overrides]
+# idle_bg="#040404"
+
+
+[[block]]
+block = "time"
+format = " $timestamp.datetime(f:' %a %d %b %H:%M:%S ', l:fr_BE) "
+interval = 1

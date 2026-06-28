@@ -1,0 +1,76 @@
+[user]
+  name = Ayoub EL Mhamdi
+  email = ayoub.elmhamdi@gmail.com
+  username = ayoubelmhamdi
+[init]
+  defaultBranch = master
+[color]
+  ui = auto
+; [color "branch"]
+;   current = yellow bold
+;   local = green bold
+;   remote = cyan bold
+; [color "diff"]
+;   meta = yellow bold
+;   frag = magenta bold
+;   old = red bold
+;   new = green bold
+;   whitespace = red reverse
+[color "status"]
+  added = green bold
+  changed = yellow bold
+  untracked = red bold
+[safe]
+  directory = /root/stow/nvim-v2/.config/nvim/lua
+  directory = /opt/sdk/flutter
+  directory = /opt/xbps-src/void-packages
+  directory = /tmp/new_tmp/autocmd.nvim
+  directory = /root/Git/plugin/cfg-highlight.nvim/after
+  directory = /root/Git/plugin/cfg-highlight.nvim
+  directory = /mnt/termux/scripts
+  directory = /home/mhamdi/book/TRPM
+  directory = /root/.config/nvim
+  directory = .
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
+
+[core]
+  ; pager = delta --dark
+  editor = nvim
+  ; excludesfile = /home/mhamdi/.g_gitignore
+
+; [interactive]
+;   diffFilter = delta --color-only
+
+[delta]
+  ; syntax-theme = gruvbox
+  navigate = true  # use n and N to move between diff sections
+  light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  ; side-by-side = true
+  ; width = 104
+  ; line-numbers = false
+  ; features = 24-bit-color,minus-emphasis,dark
+
+[merge]
+  conflictstyle = diff3
+  tool=nvim
+[mergetool "nvim"]
+  cmd = nvim -f -c \"vert diffsplit\" \"$MERGED\"
+[diff]
+  colorMoved = default
+  tool = nvimdiff
+[difftool]
+  prompt = false
+[difftool "nvimdiff"]
+  cmd = "nvim -d"
+
+[push]
+	default = current
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
