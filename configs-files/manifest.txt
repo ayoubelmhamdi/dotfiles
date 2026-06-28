@@ -119,13 +119,12 @@ zsh/void.zsh|~/.config/zsh/void.zsh|644|void
 
 zsh/zsh-zle-completion.zsh|~/.config/zsh/zsh-zle-completion.zsh|644|universe
 zsh/zsh-my-completion.zsh|~/.config/zsh/zsh-my-completion.zsh|644|universe
-# somethings weird on my fpath/
 zsh/fpath/|~/.config/fpath/|755|universe
 
 
 # ---- latex -------------------------------------------------------
-# latex2025/latexmk/.latexmkrc|~/.latexmkrc|644
-# latex2025/latexmk/latexmk.pl|/texmf-dist/scripts/latexmk/latexmk.pl|
-# latex2025/tlpkg/TeXLive/|~/tlpkg/TeXLive/|755
-# latex2025/zsh/latex.zsh|~/.config/zsh/latex.zsh|644|universe
+# latex/2025/.latexmkrc|~/.latexmkrc|644
+# latex/2025/latexmk.pl|~/texmf-dist/scripts/latexmk/latexmk.pl|
+# latex/2025/tlpkg/TeXLive/|~/tlpkg/TeXLive/|755
+# latex/2025/zsh/latex.zsh|~/.config/zsh/latex.zsh|644|universe
 # ---- latex end -------------------------------------------------------
