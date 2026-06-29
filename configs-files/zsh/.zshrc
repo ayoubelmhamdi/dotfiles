@@ -197,21 +197,68 @@ run_claude(){
     {
      "customApiKeyResponses": {
        "approved": [
+         "8abad0a08c62d5c01c0a",
          "bd59d2a85ceeb76f78f7",
-         "8abad0a08c62d5c01c0a"
+         "b07c5b66bd8a8b36f7dd",
+         "ee6848507d1bc80de014"
        ]
      },
      "hasCompletedOnboarding": true
     }'
 
+    init_claude_user_json='
+    {
+      "permissions": {
+        "allow": [
+          "Read(./local-conf/**)",
+          "Bash(echo \"exit=$?\")",
+          "Bash(curl *)",
+          "Bash(find *)",
+          "Bash(curl /Users/dev/*)",
+          "Bash(./venv/bin/python3.11 *)",
+          "Bash(* --version)",
+          "Bash(* --help *)",
+          "Bash(jq:*)",
+          "Bash(rm -rf build)",
+          "Bash(ruff check:*)",
+          "Bash(go build *)",
+          "Bash(make:*)"
+        ],
+        "deny": [
+          "Bash(ruff format:*)",
+          "Bash(chmod *)",
+          "Bash(curl * | bash)",
+          "Bash(wget * | bash)",
+          "Bash(git push *)",
+          "Read(.envrc)",
+          "Read(.env)",
+          "Read(.env.*)",
+          "Read(./secrets/**)",
+          "Read(./**/*.key)",
+          "Read(./**/*.pem)",
+          "Read(./**/credentials.*)"
+        ],
+        "ask": []
+      },
+      "statusLine": {
+        "type": "command",
+        "command": "bash /home/mhamdi/.claude/statusline.sh",
+        "padding": 0
+      }
+    }
+
+    '
+
     tokens_name=(
-        "2151"
-        "10ef"
+        "78f7" # abdo1
+        "1c0a" # pcayoub1@gmail.com
+        "f7dd" # abdo2
+        "e014" # smp.ayoub@gmail.com 
     )
     [ $# -ne 0 ] || { echo "ERROR: no arg provided" >&2; return 1; }
     token="$1";shift
-    head_token="${token:6:4}"
 
+    head_token="${token:50}"
     [ "${#token}" -eq 54 ] || { echo "api $head_token... length ${#token} not 54 char" >&2; return 1; }
     # associative array not work in bash and zsh in the same way.
     # so normal loop are enaugh to me.
@@ -226,10 +273,27 @@ run_claude(){
 
     args=()
     if [ -f local-conf/.claude.json ];then
-        args+=( --continue )
+          cwd_slug=$(printf '%s' "$(builtin pwd -P)" | tr -c 'a-zA-Z0-9' '-')
+          [ -d "./local-conf/projects/$cwd_slug" ] || {
+              echo "check if old projects names cot correct:"
+              echo "try: "
+              echo "mv" "./local-conf/projects/"*"/" "./local-conf/projects/$cwd_slug/"
+              return 1
+          }
+          args+=( --continue )
     else
-        echo "$init_claude_json" > ./local-conf/.claude.json || { echo "can not create ./local-conf/.claude.json" >&2; return 1; }
         # echo "$init_claude_json" to ./local-conf/.claude.json 
+        echo "$init_claude_json" > ./local-conf/.claude.json || {
+            echo "can not create ./local-conf/.claude.json" >&2
+            return 1
+        }
+
+        # echo "$init_claude_user_json" to ./local-conf/settings.json 
+        echo "$init_claude_user_json" > ./local-conf/settings.json || {
+            echo "can not create ./local-conf/settings.json" >&2
+            return 1
+        }
+
     fi
 
 
