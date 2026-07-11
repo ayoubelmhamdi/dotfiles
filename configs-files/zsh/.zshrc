@@ -61,6 +61,16 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# Force emacs line-editing keymap (Alt+d, Alt+b/f, Ctrl+a/e, word motions...).
+# zsh auto-selects vi-mode (viins) at startup whenever $EDITOR or $VISUAL
+# contains the substring "vi" -- and "nvim" does. A plain terminal doesn't have
+# EDITOR exported before zsh starts, so it gets emacs; but the tmux server
+# inherits EDITOR=nvim and hands it to every pane, so panes start in vi-mode.
+# That is why vi-mode appeared ONLY inside tmux. `bindkey -e` pins emacs
+# regardless of $EDITOR/tmux, and MUST run before the bindkey calls below so
+# they bind into the emacs keymap (not viins).
+bindkey -e
+
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
@@ -309,5 +319,4 @@ run_claude(){
 
 # search if keybind apply or not?
 # bindkey | grep '\[\[3~'
-# bindkey -e
-
+# (emacs keymap is forced early above via `bindkey -e`)
