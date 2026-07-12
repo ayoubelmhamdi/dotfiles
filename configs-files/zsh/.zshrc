@@ -186,7 +186,7 @@ unalias ls 2>/dev/null
 
 if [[ -s $HOME/.config/zsh  ]];then
     for file in $HOME/.config/zsh/* $HOME/.config/zsh-post/*;do
-        zi ice lucid wait
+        zi ice lucid wait'0'
         zi snippet "$file"
     done
 fi
