@@ -30,6 +30,16 @@ lazy(){
     "$@"
 }
 
+resize_with_xrandr(){
+    while true;do
+        if ! $(xrandr | grep ' connected' >/dev/null 2>&1);then
+            sleep 1
+        else
+            bash ~/screencrop 370 240
+            break
+        fi
+    done
+}
 
 if [ -f "$HOME/.config/brightness/brightness-kernel" ];then
     # xbps-install -Sy xbacklight
@@ -44,6 +54,7 @@ sxhkd > /tmp/log.xshkd.log  &
 ping-status &
 nm-applet &
 
+resize_with_xrandr &
 lazy ping-status & # NOTE: work when put it first not last started
 lazy pipewire &
 lazy /home/mhamdi/scripts/bin/get_bandwith_stream &

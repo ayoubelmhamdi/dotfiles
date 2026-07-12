@@ -79,17 +79,7 @@ zathura/zathurarc|~/.config/zathura/zathurarc|644
 zed/keymap.json|~/.config/zed/keymap.json|644
 zed/settings.json|~/.config/zed/settings.json|644
 zed/tasks.json|~/.config/zed/tasks.json|644
-
-# ---- tmux --------------------------------------------------------
 tmux/.tmux.conf|~/.tmux.conf|644
-tmux/gruvbox.conf|~/.config/tmux/gruvbox.conf|644
-tmux/gruvbox2.conf|~/.config/tmux/gruvbox2.conf|644
-tmux/keymap.conf|~/.config/tmux/keymap.conf|644
-tmux/plugin.conf|~/.config/tmux/plugin.conf|644
-tmux/settings.conf|~/.config/tmux/settings.conf|644
-tmux/statusBar.conf|~/.config/tmux/statusBar.conf|644
-tmux/switchto.conf|~/.config/tmux/switchto.conf|644
-tmux/viMode.conf|~/.config/tmux/viMode.conf|644
 
 
 # ---- zsh ---------------------------------------------------------
