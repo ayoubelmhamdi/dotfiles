@@ -93,8 +93,7 @@ alias xl='xlocate'
 
 
 
-alias liber=libreoffice
-alias lb=libreoffice
+alias li=libreoffice
 
 
 
