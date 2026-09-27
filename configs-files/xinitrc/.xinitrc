@@ -87,5 +87,5 @@ doas_exist && (doas modprobe -r wl && doas modprobe wl) &
 # while true;do
 #     dwm
 # done
-dwm
+#dwm
 # i3
