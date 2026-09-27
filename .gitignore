@@ -9,3 +9,5 @@ local-conf/.claude.json
 
 nvim.log
 prompts*.md
+
+.uuid
