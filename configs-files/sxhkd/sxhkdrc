@@ -2,8 +2,6 @@
 
 #  dmenu not load setxkbmap in xinitrc
 
-super + z
-    zathura /data/book/pdf_inputs2/TRPM-2.pdf
 
 super + e
     /data/projects/c/ayoub/panim/game_launch.sh
@@ -14,6 +12,12 @@ super + Escape
 
 super + p
     dmenu_run -m 0 -fn 'JetBrainsMono Nerd Font Mono:size=10' -nb '#2F343F' -nf '#bbbbbb' -sb '#f05577' -sf '#eeeeee'
+
+# super + z
+#     zathura /data/book/pdf_inputs2/TRPM-2.pdf
+
+super + z
+    /home/mhamdi/bin/boomer
 
 super + o:
     xclip -selection clipboard -o > /data/local_tmp/mdbook-tmp/src/chapter_1.md
