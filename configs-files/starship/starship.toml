@@ -2,8 +2,6 @@ format = """
 $env_var\
 $directory\
 $sudo\
-$username\
-$hostname\
 $git_branch\
 $git_status\
 $git_commit\
@@ -60,12 +58,36 @@ disabled = true
 format = '[$env_value]($style)'
 style = 'bold blue'
 
+#1[directory]
+#1style	= 'bold blue'
+#1read_only = " "
+#1# fish_style_pwd_dir_length = 3
+#1truncate_to_repo = true
+#1format = '[$path]($style)[$read_only]($read_only_style) '
+#################
 [directory]
-style	= 'bold blue'
-read_only = " "
-# fish_style_pwd_dir_length = 3
-truncate_to_repo = true
-format = '[$path]($style)[$read_only]($read_only_style) '
+disabled = true
+
+# Inside MYCWD: show path relative to it
+[custom.mycwd]
+when = '[ -n "$MYCWD" ] && { [ "$PWD" = "$MYCWD" ] || [[ "$PWD" == "$MYCWD"/* ]]; }'
+command = '''
+base="$(basename "$(realpath "$MYCWD")")"
+if [ "$PWD" = "$MYCWD" ]; then echo "\$PWD/$base"
+else echo "\$PWD/$base/${PWD#$MYCWD/}"
+fi
+'''
+shell = ["bash", "--noprofile", "--norc"]
+style = "bold blue"
+format = "[$output]($style) "
+
+# Everywhere else: mimic the default directory module
+[custom.dir]
+when = '! { [ -n "$MYCWD" ] && { [ "$PWD" = "$MYCWD" ] || [[ "$PWD" == "$MYCWD"/* ]]; }; }'
+command = 'starship module directory'
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+###########
 
 [vcsh]
 disabled = true
@@ -189,9 +211,9 @@ disabled = false
 pipestatus = true
 
 [cmd_duration]
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 style = "yellow"
-min_time = 5_000
+min_time = 1_000
 
 
 # [custom.direnv]
