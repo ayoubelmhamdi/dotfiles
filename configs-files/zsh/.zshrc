@@ -316,6 +316,11 @@ run_claude(){
     claude "${args[@]}" "$@"
 }
 
+bashx() (
+    set -o pipefail
+    PS4='+ ' bash -x "$@" 2>&1 | grcat conf.bashtrace
+)
+
 
 # search if keybind apply or not?
 # bindkey | grep '\[\[3~'
