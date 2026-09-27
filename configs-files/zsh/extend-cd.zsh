@@ -61,7 +61,7 @@ cd (){
         echo "cd: no such file or directory: $dir_path"
         return 3
     elif [ $n -ge 2 ] ;then
-        if zoxide query "$dir_path" -ls 2>/dev/null | awk 'NR==1{a=$dir_path} NR==2{b=$dir_path} END{exit !(a>=10*b)}'; then
+        if zoxide query "$dir_path" -ls 2>/dev/null | awk 'NR==1{a=$1} NR==2{b=$1} END{exit !(a>=10*b)}'; then
             query=$(zoxide query "$dir_path" 2>/dev/null)
         else
             query=$(zoxide query "$dir_path" -i 2>/dev/null)
