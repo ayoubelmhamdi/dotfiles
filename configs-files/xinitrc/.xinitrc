@@ -46,6 +46,10 @@ if [ -f "$HOME/.config/brightness/brightness-kernel" ];then
     xbacklight -set "$(cat "$HOME/.config/brightness/brightness-kernel")" &
 fi
 
+
+export GTK_USE_PORTAL=1
+eval $(dbus-launch --sh-syntax) # no async needed, some apps below need $DBUS_SESSION_BUS_ADDRESS
+
 # Daemons
 st &
 # lazy flameshot screen -c &

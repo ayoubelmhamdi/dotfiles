@@ -28,6 +28,3 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && [[ ! -f $TMPDIR/first_start 
     #2exec startx
     #1dbus-run-session startx
 fi
-
-export GTK_USE_PORTAL=1
-eval $(dbus-launch --sh-syntax)
