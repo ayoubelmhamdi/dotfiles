@@ -20,7 +20,9 @@ export PATH="$PATH:/data/sdk/flutter/bin:/data/sdk/android-studio/bin:/data/sdk/
 declare -a MY_PATHS=(
     "/data/projects/c/ayoub/getbandwith/bin"
     "$HOME/scripts/bin"
+    "$HOME/scripts/new-bin"
     "$HOME/bin"
+    "$HOME/bin-tmp/"
     "$HOME/.local/bin"
     "$HOME/go/bin"
     "$HOME/.cargo/bin"
