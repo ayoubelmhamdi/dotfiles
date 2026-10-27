@@ -35,7 +35,8 @@ resize_with_xrandr(){
         if ! $(xrandr | grep ' connected' >/dev/null 2>&1);then
             sleep 1
         else
-            bash ~/screencrop 370 240
+            # bash ~/scripts/bin/screencrop 370 240
+            bash $HOME/scripts/new-bin/screencrop 370 240
             break
         fi
     done
@@ -55,13 +56,13 @@ st &
 # lazy flameshot screen -c &
 # ~/.fehbg &
 sxhkd > /tmp/log.xshkd.log  &
-ping-status &
-nm-applet &
+# ping-status &
+lazy nm-applet &
 
-resize_with_xrandr &
-lazy ping-status & # NOTE: work when put it first not last started
-lazy pipewire &
-lazy /home/mhamdi/scripts/bin/get_bandwith_stream &
+lazy resize_with_xrandr &
+lazy $HOME/scripts/new-bin/ping-status & # NOTE: work when put it first not last started
+# lazy pipewire &
+# lazy /home/mhamdi/scripts/bin/get_bandwith_stream &
 lazy xsetroot -name "Faild;" &
 lazy dwmblocks 2>/tmp/dwmblocks.log &
 
