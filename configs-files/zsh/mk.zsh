@@ -5,9 +5,10 @@
 # Create a directory and cd into it
 function mk (){ 
     if [[ ! -d "$1" ]];then
-      command mkdir -p "$1"
+        command mkdir -p /tmp/new_2/$RANDOM && builtin cd $_
+    else
+        builtin cd "$1"
     fi
-    builtin cd "$1"
 }
 
 function mkrand(){
@@ -32,8 +33,22 @@ function mkrand(){
         "tamarind" "ugli-fruit" "yuzu"
     )
 
-    fruit="${fruits[RANDOM % ${#fruits[@]}]}"
+    fruit=$(
+        for f in "${fruits[@]}"; do echo "$RANDOM $f"; done | sort -n | cut -d' ' -f2 | {
+            while read -r f; do
+                fruit="$f"
+                if ! ls /rand 2>/dev/null | grep -q "^$f-"; then
+                    # @dupplicated
+                    # we decide to use the date: MMDD if already taken we use rand
+                    break
+                fi
+            done
+            echo "$fruit"
+        }
+    )
 
+    # @dupplicated
+    # we decide to use the date: MMDD if already taken we use rand
     dir="/rand/$fruit-$RANDOM/"
     if [[ ! -d "$dir" ]];then
       command mkdir -p "$dir"
