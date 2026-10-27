@@ -8,6 +8,7 @@
 #   builtin cd $HOME/data
 # fi
 #
+# can we moved them into ~/.xinitrc
 if command -v zoxide >/dev/null 2>&1; then
     eval "$(starship init zsh &)"
 fi
@@ -23,33 +24,45 @@ fpath=(~/.config/fpath $fpath)
 
 
 ##############################################
-# SETOPT
+setopt INTERACTIVECOMMENTS
 
-# Do not trigger filename/glob errors when there is no match.
-# Makes zsh behave more like bash (leaves patterns unchanged).
-# Useful for using '?' in URLs, etc.
-# Example:
-#   $ echo a?=3
-#   a?=3
-setopt NO_NOMATCH
+set      bell-style none # prevend readline emit a bell
+unsetopt BEEP            # turn off bell in Terminal when an invalid action occurs.
+unsetopt LIST_BEEP       # completion list should not scary me.
+setopt   NO_NOMATCH      # disables throw error if a glob like *.txt unmatched. i want the same behaviour like bash.
 
-unsetopt beep         #turn off bell
-unsetopt list_beep
-set bell-style none
-
-setopt inc_append_history     # add commands to HISTFILE in order of execution
-setopt extended_history       # add time to zshhistory like `:1659681839:0;cat hist`
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_ignore_all_dups   # ignore duplicated commands history list
-
+# setopt INC_APPEND_HISTORY # (not necessary): add commands to HISTFILE in order of execution
+setopt EXTENDED_HISTORY       # add time to zshhistory like `:1659681839:0;cat hist`
+setopt HIST_IGNORE_SPACE      # ignore commands that start with space
+setopt HIST_IGNORE_ALL_DUPS   # ignore duplicated commands history list
 
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
-
 export LISTMAX=20             # Number of completions shown w/o asking
-export TIMEFMT=$TIMEFMT       # Format for reporting usage with time
-export WATCHFMT=$WATCHFMT     # Format of reports for $watch
+
+# export TIMEFMT=$TIMEFMT       # Format for reporting usage with time
+# export WATCHFMT=$WATCHFMT     # Format of reports for $watch
+
+# ENV VARIABLE
+export DISABLE_MAGIC_FUNCTIONS=true     # make pasting into terminal faster
+export EDITOR=nvim
+export PAGER=bat
+export DOCKER_BUILDKIT=1
+export COMPOSE_DOCKER_CLI_BUILD=1
+
+
+
+# GO SETTINGS
+export CGO_ENABLED=1
+export CGO_CFLAGS="-g -O2 -Wno-return-local-addr"
+export GOPATH="$HOME/go/"
+export PATH="$GOPATH/bin:$PATH"
+
+# alias ls="command ls"
+# unalias ls 2>/dev/null
+##############################################
+
 
 
 ### Added by Zinit's installer
@@ -149,41 +162,6 @@ bindkey "^[[3~"     delete-char
 
 
 
-####################################
-#2# kitty
-#2
-#2zmodload -i zsh/parameter
-#2
-#2insert-last-command-output() {
-#2  LBUFFER+="$(eval $history[$((HISTCMD-1))])"
-#2}
-#2zle -N insert-last-command-output
-#2
-#2# only kitty that have tab and ctrl+i different: but not easy to figureout, so no terminal agnositc keybinds.
-#2bindkey "\e[105;5u" insert-last-command-output # ctrl + I
-#2bindkey "^I"        insert-last-command-output # ctrl + I (maybe kitty)
-
-
-
-# ENV VARIABLE
-export DISABLE_MAGIC_FUNCTIONS=true     # make pasting into terminal faster
-export EDITOR=nvim
-export PAGER=bat
-export DOCKER_BUILDKIT=1
-export COMPOSE_DOCKER_CLI_BUILD=1
-
-
-
-# GO SETTINGS
-export CGO_ENABLED=1
-export CGO_CFLAGS="-g -O2 -Wno-return-local-addr"
-export GOPATH="$HOME/go/"
-export PATH="$GOPATH/bin:$PATH"
-
-# alias ls="command ls"
-unalias ls 2>/dev/null
-
-
 if [[ -s $HOME/.config/zsh  ]];then
     for file in $HOME/.config/zsh/* $HOME/.config/zsh-post/*;do
         zi ice lucid wait'0'
@@ -201,126 +179,54 @@ xcp-cookies(){
     /data/projects/py/netscape-cookies-2-json/main.py "$1" | xclip -selection clipboard
 }
 
-run_claude(){
-    local token head_token t found
-    init_claude_json='
-    {
-     "customApiKeyResponses": {
-       "approved": [
-         "8abad0a08c62d5c01c0a",
-         "bd59d2a85ceeb76f78f7",
-         "b07c5b66bd8a8b36f7dd",
-         "ee6848507d1bc80de014"
-       ]
-     },
-     "hasCompletedOnboarding": true
-    }'
-
-    init_claude_user_json='
-    {
-      "permissions": {
-        "allow": [
-          "Read(./local-conf/**)",
-          "Bash(echo \"exit=$?\")",
-          "Bash(curl *)",
-          "Bash(find *)",
-          "Bash(curl /Users/dev/*)",
-          "Bash(./venv/bin/python3.11 *)",
-          "Bash(* --version)",
-          "Bash(* --help *)",
-          "Bash(jq:*)",
-          "Bash(rm -rf build)",
-          "Bash(ruff check:*)",
-          "Bash(go build *)",
-          "Bash(make:*)"
-        ],
-        "deny": [
-          "Bash(ruff format:*)",
-          "Bash(chmod *)",
-          "Bash(curl * | bash)",
-          "Bash(wget * | bash)",
-          "Bash(git push *)",
-          "Read(.envrc)",
-          "Read(.env)",
-          "Read(.env.*)",
-          "Read(./secrets/**)",
-          "Read(./**/*.key)",
-          "Read(./**/*.pem)",
-          "Read(./**/credentials.*)"
-        ],
-        "ask": []
-      },
-      "statusLine": {
-        "type": "command",
-        "command": "bash /home/mhamdi/.claude/statusline.sh",
-        "padding": 0
-      }
-    }
-
-    '
-
-    tokens_name=(
-        "78f7" # abdo1
-        "1c0a" # pcayoub1@gmail.com
-        "f7dd" # abdo2
-        "e014" # smp.ayoub@gmail.com 
-    )
-    [ $# -ne 0 ] || { echo "ERROR: no arg provided" >&2; return 1; }
-    token="$1";shift
-
-    head_token="${token:50}"
-    [ "${#token}" -eq 54 ] || { echo "api $head_token... length ${#token} not 54 char" >&2; return 1; }
-    # associative array not work in bash and zsh in the same way.
-    # so normal loop are enaugh to me.
-    found=0
-    for t in "${tokens_name[@]}"; do
-        [ "$t" = "$head_token" ] && { found=1; break; }
-    done
-    [ "$found" -eq 1 ] || { echo "first 10 head token '$head_token' doesn't exist in \$tokens_name" >&2; return 1; }
-
-
-    mkdir -p ./local-conf || { echo "can not create ./local-conf/." >&2; return 1; }
-
-    args=()
-    if [ -f local-conf/.claude.json ];then
-          cwd_slug=$(printf '%s' "$(builtin pwd -P)" | tr -c 'a-zA-Z0-9' '-')
-          [ -d "./local-conf/projects/$cwd_slug" ] || {
-              echo "check if old projects names cot correct:"
-              echo "try: "
-              echo "mv" "./local-conf/projects/"*"/" "./local-conf/projects/$cwd_slug/"
-              return 1
-          }
-          args+=( --continue )
-    else
-        # echo "$init_claude_json" to ./local-conf/.claude.json 
-        echo "$init_claude_json" > ./local-conf/.claude.json || {
-            echo "can not create ./local-conf/.claude.json" >&2
-            return 1
-        }
-
-        # echo "$init_claude_user_json" to ./local-conf/settings.json 
-        echo "$init_claude_user_json" > ./local-conf/settings.json || {
-            echo "can not create ./local-conf/settings.json" >&2
-            return 1
-        }
-
-    fi
-
-
-    ANTHROPIC_API_KEY="$token"                                     \
-    ANTHROPIC_BASE_URL="https://cc.freemodel.dev"                  \
-                                                                   \
-    ANTHROPIC_TOKEN_NAME="$head_token"                             \
-    CLAUDE_CONFIG_DIR=./local-conf                                 \
-                                                                   \
-    claude "${args[@]}" "$@"
-}
 
 bashx() (
     set -o pipefail
     PS4='+ ' bash -x "$@" 2>&1 | grcat conf.bashtrace
 )
 
+mv_(){ 
+    file="$1"
+
+    cwd=`pwd`
+    cd "/home/mhamdi/scripts/bin"
+    if [ -h "$file" ];then
+        [ -f "$file" ] || echo "symlink is broken" ; return 1
+        sleep 0.1; clear
+        full_path="$(realpath --relative-to=../new-bin/ "$file")"
+
+        cd "/home/mhamdi/scripts/new-bin"
+        if [ -n "$(git ls-files "$file")" ];then
+            git rm "../bin/$file" && git mv "$full_path" . && ./v "$file"
+        else
+            rm "../bin/$file" && mv "$full_path" . && ./v "$file"
+        fi
+
+        cd "$cwd"
+    elif [ -f "$file" ];then
+        cd "/home/mhamdi/scripts/new-bin"
+        if [ -n "$(git ls-files "../bin/$file")" ]; then
+            git mv "../bin/$file" . && ./v "$file"
+        else
+            mv "../bin/$file" . && ./v "$file"
+        fi
+
+        cd "$cwd"
+    else
+        echo "ERROR: symlink $file file not exist"
+        return 1
+    fi
+}
+
+
+_fsz2() {
+    [ "$#" -eq 1 ]    || { echo "ERROR: exactly one argument required" >&2; return 1; }
+    [ -n "$1" ]       || { echo "ERROR: pattern must not be empty" >&2; return 1; }
+    command -v fzf    || { echo "ERROR: fzf not found in PATH" >&2; return 1; }
+
+    local pattern="$1"
+    grep "$pattern" /data/old.filesystem.txt | fzf
+}
 
 # search if keybind apply or not?
 # bindkey | grep '\[\[3~'
