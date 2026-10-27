@@ -16,6 +16,9 @@ fork(){
 }
 
 cd (){
+    # TODO:
+    # support https://github.com/user/repo
+    # support git@github.com:user/repo
     dir_path="$1"
     if [ $# -eq 0 ];then
         # builtin cd $HOME
