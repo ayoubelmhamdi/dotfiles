@@ -3,8 +3,8 @@
 #  dmenu not load setxkbmap in xinitrc
 
 
-super + e
-    /data/projects/c/ayoub/panim/game_launch.sh
+# super + e
+#     /data/projects/c/ayoub/panim/game_launch.sh
     # /data/projects/c/raylib/game2/game_launch.sh
 
 super + Escape
@@ -23,7 +23,10 @@ super + o:
     xclip -selection clipboard -o > /data/local_tmp/mdbook-tmp/src/chapter_1.md
 
 super + shift + f
-    "$HOME/scripts/bin/launch_brave"
+    bash "$HOME/scripts/new-bin/launch-browser"
+    # "$HOME/scripts/bin/launch_brave"
+    # "$HOME/scripts/new-bin/launch_brave"
+    
 
 Print
     flameshot gui
