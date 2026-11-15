@@ -36,7 +36,7 @@ resize_with_xrandr(){
             sleep 1
         else
             # bash ~/scripts/bin/screencrop 370 240
-            bash $HOME/scripts/new-bin/screencrop 370 240
+            # bash $HOME/scripts/new-bin/screencrop 370 240
             break
         fi
     done
@@ -54,7 +54,7 @@ eval $(dbus-launch --sh-syntax) # no async needed, some apps below need $DBUS_SE
 # Daemons
 st &
 # lazy flameshot screen -c &
-# ~/.fehbg &
+[ -f ~/.fehbg ] && ~/.fehbg &
 sxhkd > /tmp/log.xshkd.log  &
 # ping-status &
 lazy nm-applet &
