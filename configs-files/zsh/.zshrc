@@ -9,13 +9,18 @@
 # fi
 #
 # can we moved them into ~/.xinitrc
-if command -v zoxide >/dev/null 2>&1; then
+if command -v starship >/dev/null 2>&1; then
     eval "$(starship init zsh &)"
 fi
 
 if command -v zoxide >/dev/null 2>&1; then
     eval "$(zoxide init zsh &)"
 fi
+
+if command -v doas >/dev/null 2>&1; then
+    alias sudo='command doas'
+fi
+
 
 fpath=(~/.config/fpath $fpath)
 
@@ -31,15 +36,15 @@ unsetopt BEEP            # turn off bell in Terminal when an invalid action occu
 unsetopt LIST_BEEP       # completion list should not scary me.
 setopt   NO_NOMATCH      # disables throw error if a glob like *.txt unmatched. i want the same behaviour like bash.
 
-# setopt INC_APPEND_HISTORY # (not necessary): add commands to HISTFILE in order of execution
-setopt EXTENDED_HISTORY       # add time to zshhistory like `:1659681839:0;cat hist`
+setopt INC_APPEND_HISTORY # add commands to HISTFILE in order of execution
+# setopt EXTENDED_HISTORY   # uncomment it's not help add time to zshhistory like `:1659681839:0;cat hist`
 setopt HIST_IGNORE_SPACE      # ignore commands that start with space
 setopt HIST_IGNORE_ALL_DUPS   # ignore duplicated commands history list
 
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
-export LISTMAX=20             # Number of completions shown w/o asking
+export LISTMAX=6             # Number of completions shown w/o asking
 
 # export TIMEFMT=$TIMEFMT       # Format for reporting usage with time
 # export WATCHFMT=$WATCHFMT     # Format of reports for $watch
@@ -186,36 +191,54 @@ bashx() (
 )
 
 mv_(){ 
+    echo 'ici1'
     file="$1"
 
     cwd=`pwd`
-    cd "/home/mhamdi/scripts/bin"
     if [ -h "$file" ];then
-        [ -f "$file" ] || echo "symlink is broken" ; return 1
         sleep 0.1; clear
         full_path="$(realpath --relative-to=../new-bin/ "$file")"
 
         cd "/home/mhamdi/scripts/new-bin"
-        if [ -n "$(git ls-files "$file")" ];then
-            git rm "../bin/$file" && git mv "$full_path" . && ./v "$file"
+        base_name="$(basename $file)"
+        git_name="$(git ls-files | grep "$base_name")"
+        echo "git_name: $git_name"
+        if [ -n "$git_name" ];then
+            echo git rm "../bin/$base_name" && echo git mv "$full_path" . 
         else
-            rm "../bin/$file" && mv "$full_path" . && ./v "$file"
+            echo rm "../bin/$base_name" && mv "$full_path" .
         fi
 
-        cd "$cwd"
     elif [ -f "$file" ];then
         cd "/home/mhamdi/scripts/new-bin"
-        if [ -n "$(git ls-files "../bin/$file")" ]; then
-            git mv "../bin/$file" . && ./v "$file"
+        echo cd `pwd`
+        if [ -n "$(git ls-files "../bin/$base_name")" ]; then
+            echo git mv "../bin/$base_name" .
+
+            echo git rm "../bin/$base_name" && echo git mv "$full_path" . 
         else
-            mv "../bin/$file" . && ./v "$file"
+            echo rm "../bin/$base_name" && mv "$full_path" .
         fi
 
-        cd "$cwd"
+    elif [ -f "$file" ];then
+        cd "/home/mhamdi/scripts/new-bin"
+        echo cd `pwd`
+        if [ -n "$(git ls-files "../bin/$base_name")" ]; then
+            echo git mv "../bin/$base_name" .
+            echo git add "../bin/$base_name"
+            echo git commit -m "'moved into new-bin'" "../bin/$base_name"
+        else
+            echo mv "../bin/$base_name" .
+        fi
+
     else
         echo "ERROR: symlink $file file not exist"
+        cd "$cwd"
         return 1
     fi
+
+    echo v "$file"
+    cd "$cwd"
 }
 
 
@@ -231,3 +254,30 @@ _fsz2() {
 # search if keybind apply or not?
 # bindkey | grep '\[\[3~'
 # (emacs keymap is forced early above via `bindkey -e`)
+
+
+fdf() {
+    local dir
+    die() { printf 'fdf: %s\n' "$*" >&2; return 1; }
+
+    [ "$#" -eq 1 ] || die "Usage: fdf <directory>"
+    dir=$1
+    [ -d "$dir" ] || die "Not a directory: $dir"
+
+    fd -E venv -E .venv -E site-packages -E .git -E local-conf --max-depth 10 . "$dir"
+}
+
+function setdate(){
+    timeout 2s curl -sI 1.1.1.1 >/dev/null 2>&1
+    local _status=$?
+    if [ $_status -eq 124 ];then
+        echo "curl exist with $_status"; timeout 2s curl -sI 1.1.1.1
+    elif [ $_status -ne 0 ];then 
+        echo "curl exist with $_status"
+    fi
+
+    date="$(timeout 10s curl -sI 1.1.1.1 | grep -i ^date | cut -d' ' -f2- | tr -d '\r')"
+    [ -n "$date" ] || { echo "date was empty";  return 1; }
+    echo sudo date -s "$date"
+    sudo date -s "$date"
+}
