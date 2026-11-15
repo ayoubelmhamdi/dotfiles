@@ -49,7 +49,7 @@ function mkrand(){
 
     # @dupplicated
     # we decide to use the date: MMDD if already taken we use rand
-    dir="/rand/$fruit-$RANDOM/"
+    dir="/rand/${fruit}-${RANDOM}/"
     if [[ ! -d "$dir" ]];then
       command mkdir -p "$dir"
     fi
