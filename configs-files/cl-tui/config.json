@@ -1,0 +1,98 @@
+{
+  "coarena": {
+    "env": {
+      "ANTHROPIC_API_KEY": {
+        "default": "$COARENA_API_KEY01",
+        "values": [
+          { "key": "$COARENA_API_KEY01", "desc": "COARENA: smp.ayoub"},
+          { "key": "$COARENA_API_KEY02", "desc": "COARENA: ayoubelmhamdi"},
+          { "key": "$COARENA_API_KEY03", "desc": "COARENA: ayoub.elmhamdi"},
+          { "key": "$COARENA_API_KEY04", "desc": "COARENA: pcayoub1"},
+          { "key": "$COARENA_API_KEY05", "desc": "COARENA: rachid.tamharrart"},
+          { "key": "$COARENA_API_KEY06", "desc": "COARENA: netweb1992"},
+          { "key": "$COARENA_API_KEY07", "desc": "COARENA: smp.ayoub2"},
+          { "key": "$COARENA_API_KEY08", "desc": "COARENA: smp.ayoub3"},
+          { "key": "$COARENA_API_KEY09", "desc": "COARENA: smp.ayoub1"},
+          { "key": "$COARENA_API_KEY10", "desc": "COARENA: smp.ayoub4"}
+        ]
+      },
+      "ANTHROPIC_BASE_URL": { "default": "https://coarena.ai/api" },
+      "ANTHROPIC_TOKEN_NAME": { "default": { "ref": "ANTHROPIC_API_KEY", "field": "desc" } },
+      "CLAUDE_CONFIG_DIR": { "default": "$CLAUDE_CONFIG_DIR" },
+      "NVIM_APPNAME": { "default": "nvim-ayoub" },
+    },
+    "command": "claude",
+    "extra_flag": {
+      "--resume": { "default": true },
+      "--model": { "default": "kimi-k3-1-pro", "values": [
+        "deepseek-v4-1-flash-1017",
+        "gemini-3-8-flash",
+        "gemini-4-argon",
+        "gemini-4-carbon",
+        "gpt-6-1-sol",
+        "gpt-6-1-terra",
+        "gpt-6-astra",
+        "gpt-6-luna",
+        "grok-4-7",
+        "kimi-k3-1-pro"
+      ]
+      },
+      "--effort": { "default": "high", "values": ["low", "high", "max"] },
+      "--dangerously-skip-permissions": { "default": true },
+      "--permission-mode": { "default": "acceptEdits", "values": ["acceptEdits", "auto", "bypassPermissions", "manual", "dontAsk", "plan"] }
+    }
+  },
+  "aero": {
+    "env": {
+      "ANTHROPIC_API_KEY": { "default": "$AEROLINK_API_KEY", "values": [{ "key": "$AEROLINK_API_KEY", "desc": "AREOLINK: smp.ayoub" }]},
+      "ANTHROPIC_BASE_URL": { "default": "https://capi.aerolink.lat" },
+      "ANTHROPIC_TOKEN_NAME": { "default": { "ref": "ANTHROPIC_API_KEY", "field": "desc" } },
+      "CLAUDE_CONFIG_DIR": { "default": "$CLAUDE_CONFIG_DIR" },
+      "NVIM_APPNAME": { "default": "nvim-ayoub" },
+    },
+    "command": "claude",
+    "extra_flag": {
+      "-c": { "default": true },
+      "--model": { "default": "opus", "values": [ "opus", "sonnet"]},
+      "--effort": { "default": "high", "values": ["low", "high", "max"]},
+      "--dangerously-skip-permissions": { "default": true },
+      "--permission-mode": { "default": "acceptEdits", "values": [
+        { "key": "acceptEdits", "desc": "automatically accept file edits" },
+        { "key": "auto", "desc": "automatically choose permissions / approve safe actions" },
+        { "key": "bypassPermissions", "desc": "skip all permission checks and prompts" },
+        { "key": "manual", "desc": "prompt for approval before each action" },
+        { "key": "dontAsk", "desc": "do not prompt; deny actions that require permission" },
+        { "key": "plan", "desc": "plan only; do not execute changes" }
+      ]}
+    }
+  },
+  "openrouter": {
+    "env": {
+      "ANTHROPIC_API_KEY": { "default": "$OPENROUTER_API_KEY" },
+      "ANTHROPIC_BASE_URL": { "default": "https://openrouter.ai/api/v1" },
+      "ANTHROPIC_TOKEN_NAME": { "default": "OPENROUTER" },
+      "CLAUDE_CONFIG_DIR": { "default": "$CLAUDE_CONFIG_DIR" },
+      "CLAUDE_CODE_MAX_CONTEXT_TOKENS": { "default": 1000000 },
+      "NVIM_APPNAME": { "default": "nvim-ayoub" }
+    },
+    "command": "claude",
+    "extra_flag": {
+      "--model": { "default": "openrouter-nemotron-3.5-super-vl",
+        "values": [
+          "openrouter-nemotron-3.5-super-vl"
+        ]
+      },
+      "--resume": { "default": true },
+      "--effort": { "default": "high", "values": ["low", "high", "max"] },
+      "--dangerously-skip-permissions": { "default": true },
+      "--permission-mode": { "default": "acceptEdits", "values": [
+        { "key": "acceptEdits", "desc": "automatically accept file edits" },
+        { "key": "auto", "desc": "automatically choose permissions / approve safe actions" },
+        { "key": "bypassPermissions", "desc": "skip all permission checks and prompts" },
+        { "key": "manual", "desc": "prompt for approval before each action" },
+        { "key": "dontAsk", "desc": "do not prompt; deny actions that require permission" },
+        { "key": "plan", "desc": "plan only; do not execute changes" }
+      ]}
+    }
+  }
+}
