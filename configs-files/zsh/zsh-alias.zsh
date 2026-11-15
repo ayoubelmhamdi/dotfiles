@@ -107,7 +107,7 @@ alias ....='builtin cd ../../..'
 
 is_exist inxi && alias sysinfo="inxi -Fxxxz"
 # is_exist unbuffer && alias jq="unbuffer jq"
-is_exist doas && alias sudo=doas
+is_exist doas && alias sudo='command doas'
 is_exist openvpn && alias openvpn='sudo openvpn --data-ciphers AES-256-GCM:AES-128-GCM:CHACHA20-POLY1305:AES-128-CBC --config'
 is_exist normalls && alias ls='normalls'
 # [ -f /home/mhamdi/scripts/tools/cat ] && alias cat=/home/mhamdi/scripts/tools/cat
