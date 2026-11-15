@@ -14,4 +14,4 @@ flatten-line() {
   CURSOR=$#BUFFER
 }
 zle -N flatten-line
-bindkey '^F' flatten-line
+bindkey '^Q' flatten-line
