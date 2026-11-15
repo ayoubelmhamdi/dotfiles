@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+function cpi() { (( $# >= 2 )) || { print -u2 "Usage: cpi <dest> <src1>..."; return 1 }; local dest="$1"; shift; command cp -ivr -- "$@" "$dest"; }
+
 
 n(){
     TMPFILE="${TMPFILE:-/tmp}"
