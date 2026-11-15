@@ -19,7 +19,7 @@
       "ANTHROPIC_BASE_URL": { "default": "https://coarena.ai/api" },
       "ANTHROPIC_TOKEN_NAME": { "default": { "ref": "ANTHROPIC_API_KEY", "field": "desc" } },
       "CLAUDE_CONFIG_DIR": { "default": "$CLAUDE_CONFIG_DIR" },
-      "NVIM_APPNAME": { "default": "nvim-ayoub" },
+      "NVIM_APPNAME": { "default": "nvim-ayoub" }
     },
     "command": "claude",
     "extra_flag": {
@@ -48,7 +48,7 @@
       "ANTHROPIC_BASE_URL": { "default": "https://capi.aerolink.lat" },
       "ANTHROPIC_TOKEN_NAME": { "default": { "ref": "ANTHROPIC_API_KEY", "field": "desc" } },
       "CLAUDE_CONFIG_DIR": { "default": "$CLAUDE_CONFIG_DIR" },
-      "NVIM_APPNAME": { "default": "nvim-ayoub" },
+      "NVIM_APPNAME": { "default": "nvim-ayoub" }
     },
     "command": "claude",
     "extra_flag": {
