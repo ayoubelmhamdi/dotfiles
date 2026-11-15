@@ -29,6 +29,10 @@ pipewire/pipewire.conf.d/20-pipewire-pulse.conf|~/.config/pipewire/pipewire.conf
 
 
 # ---- User ---------------------------------------------------------
+sing-box/netshare-no-root-android.json|~/.config/sing-box/netshare-no-root-android.json|644
+cl-tui/config.json|~/.config/cl-tui/config.json|644
+
+# ---- User ---------------------------------------------------------
 xinitrc/.xinitrc|~/.xinitrc|644
 xmodmap/.Xmodmap|~/.Xmodmap|644
 inputrc/.inputrc|~/.inputrc|644
